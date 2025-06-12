@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Masters Touch Barbers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #2c1e16;   /* Dark brown */
+            --primary-medium: #5d4037;  /* Medium brown */
+            --primary-light: #d7ccc8;   /* Light brown */
+            --accent-black: #1a1a1a;    /* Black */
+            --accent-gold: #c9a769;     /* Gold accent */
+            --accent-burgundy: #8B0000; /* Deep red for biblical accent */
+            --text-light: #f5f5f5;
+            --text-dark: #333;
+            --scripture-gold: #d4af37;  /* Gold for scripture references */
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f9f9f9 0%, #f0e6dc 100%);
+            overflow-x: hidden;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f0e6dc"/><path d="M0 50 Q 25 25, 50 50 T 100 50" fill="none" stroke="%23d7ccc8" stroke-width="0.5" opacity="0.2"/></svg>');
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .scriptural {
+            font-family: 'Cinzel', serif;
+            color: var(--accent-burgundy);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, var(--primary-dark), var(--accent-black));
+            color: var(--text-light);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 1.8rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav a:hover {
+            color: var(--accent-gold);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 30, 22, 0.85), rgba(44, 30, 22, 0.85)), 
+                        url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .scripture-verse {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin: 1.5rem 0;
+            color: var(--scripture-gold);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .scripture-ref {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 14px 32px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            margin: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover:before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            background: #d4b87b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-gold);
+        }
+
+        .bible-icon {
+            font-size: 2.5rem;
+            color: var(--accent-burgundy);
+            margin-bottom: 1rem;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--accent-gold);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-header {
+            background: linear-gradient(to right, var(--primary-dark), var(--accent-black));
+            color: var(--text-light);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-price {
+            font-size: 1.8rem;
+            color: var(--primary-medium);
+            font-weight: 700;
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .service-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        .scripture-ref {
+            display: block;
+            margin-top: 1rem;
+            font-style: italic;
+            color: var(--accent-burgundy);
+            text-align: center;
+        }
+
+        /* Process Section */
+        .process {
+            background: var(--primary-light);
+            position: relative;
+        }
+
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            flex: 0 0 calc(25% - 2rem);
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-gold);
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .step:not(:last-child):after {
+            content: '→';
+            position: absolute;
+            top: 25px;
+            right: -30px;
+            font-size: 2rem;
+            color: var(--accent-gold);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(rgba(44, 30, 22, 0.9), rgba(44, 30, 22, 0.9)), url('https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(201, 167, 105, 0.3);
+            text-align: left;
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .testimonial-content:before,
+        .testimonial-content:after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--accent-gold);
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .testimonial-content:before {
+            top: -15px;
+            left: -10px;
+        }
+
+        .testimonial-content:after {
+            bottom: -30px;
+            right: -10px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+            object-fit: cover;
+            border: 2px solid var(--accent-gold);
+        }
+
+        .rating {
+            color: var(--accent-gold);
+            margin: 0.5rem 0;
+        }
+
+        /* Booking Section */
+        .booking {
+            background: var(--text-light);
+            text-align: center;
+        }
+
+        .booking-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .booking-option {
+            flex: 0 0 calc(33% - 2rem);
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--accent-gold);
+        }
+
+        .booking-icon {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, var(--primary-dark), var(--accent-black));
+            color: var(--text-light);
+            padding: 3rem 0 1.5rem;
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-gold);
+        }
+
+        .footer-column p, .footer-column a {
+            color: #ddd;
+            margin-bottom: 0.8rem;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent-gold);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .step {
+                flex: 0 0 calc(50% - 2rem);
+                margin-bottom: 3rem;
+            }
+            
+            .step:not(:last-child):after {
+                display: none;
+            }
+            
+            .booking-option {
+                flex: 0 0 calc(50% - 2rem);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 1.5rem;
+                justify-content: center;
+            }
+
+            nav li {
+                margin: 0 0.8rem;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .step {
+                flex: 0 0 100%;
+            }
+            
+            .booking-option {
+                flex: 0 0 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav li {
+                margin: 0.5rem 0;
+            }
+
+            .hero {
+                height: 70vh;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Masters <span>Touch</span> Barbers</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="hours.html">Hours</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="bible-icon">
+                <i class="fas fa-cut"></i>
+            </div>
+            <h2>Our Barbering Services</h2>
+            <p>Experience exceptional grooming with a spiritual touch</p>
+            
+            <div class="scripture-verse">
+                "Each of you should use whatever gift you have received to serve others"
+                <span class="scripture-ref">1 Peter 4:10</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Premium Barber Services</h2>
+                <p>Precision cuts with spiritual purpose</p>
+                <div class="bible-icon">
+                    <i class="fas fa-hands-praying"></i>
+                </div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <h3>Men's Haircut</h3>
+                    </div>
+                    <div class="service-content">
+                        <p>A precision cut tailored to your style and preferences, performed with excellence as unto the Lord.</p>
+                        
+                        <ul class="service-features">
+                            <li>Detailed consultation to understand your needs</li>
+                            <li>Precision cutting with professional tools</li>
+                            <li>Neck shave and clean-up</li>
+                            <li>Styling advice and product application</li>
+                        </ul>
+                        
+                        <div class="service-price">R65</div>
+                        
+                        <p class="scriptural">"Let the favor of the Lord our God be upon us, and establish the work of our hands"</p>
+                        <span class="scripture-ref">Psalm 90:17</span>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Teenage Haircut</h3>
+                    </div>
+                    <div class="service-content">
+                        <p>Specialized cuts for young gentlemen learning to walk in faith and express their God-given identity.</p>
+                        
+                        <ul class="service-features">
+                            <li>Age-appropriate style consultation</li>
+                            <li>Modern cuts that reflect personal style</li>
+                            <li>Guidance on hair maintenance</li>
+                            <li>Special attention to comfort and experience</li>
+                        </ul>
+                        
+                        <div class="service-price">R55</div>
+                        
+                        <p class="scriptural">"Don't let anyone look down on you because you are young, but set an example"</p>
+                        <span class="scripture-ref">1 Timothy 4:12</span>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-child"></i>
+                        </div>
+                        <h3>Boys Haircut</h3>
+                    </div>
+                    <div class="service-content">
+                        <p>Fun and comfortable haircuts for boys, recognizing each child as a precious gift from God.</p>
+                        
+                        <ul class="service-features">
+                            <li>Patient and gentle approach</li>
+                            <li>Fun, age-appropriate styles</li>
+                            <li>Distraction techniques for nervous children</li>
+                            <li>Special "first haircut" certificate</li>
+                        </ul>
+                        
+                        <div class="service-price">R50</div>
+                        
+                        <p class="scriptural">"Children are a heritage from the Lord, offspring a reward from him"</p>
+                        <span class="scripture-ref">Psalm 127:3</span>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-razor"></i>
+                        </div>
+                        <h3>Beard Trim & Shape-Up</h3>
+                    </div>
+                    <div class="service-content">
+                        <p>Professional beard grooming to enhance your appearance while maintaining your God-given features.</p>
+                        
+                        <ul class="service-features">
+                            <li>Detailed beard analysis</li>
+                            <li>Precision trimming and shaping</li>
+                            <li>Hot towel treatment</li>
+                            <li>Beard oil application</li>
+                        </ul>
+                        
+                        <div class="service-price">R45</div>
+                        
+                        <p class="scriptural">"The glory of young men is their strength, gray hair the splendor of the old"</p>
+                        <span class="scripture-ref">Proverbs 20:29</span>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <h3>Deluxe Grooming Package</h3>
+                    </div>
+                    <div class="service-content">
+                        <p>The ultimate grooming experience for the discerning gentleman seeking comprehensive care.</p>
+                        
+                        <ul class="service-features">
+                            <li>Full haircut with style</li>
+                            <li>Beard trim and shape-up</li>
+                            <li>Hot towel facial treatment</li>
+                            <li>Scalp massage and conditioning</li>
+                            <li>Finishing products application</li>
+                        </ul>
+                        
+                        <div class="service-price">R120</div>
+                        
+                        <p class="scriptural">"Anoint your head with oil and wash your face"</p>
+                        <span class="scripture-ref">Matthew 6:17</span>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3>Executive Service</h3>
+                    </div>
+                    <div class="service-content">
+                        <p>Our premium service for those who seek the finest grooming experience with spiritual counsel.</p>
+                        
+                        <ul class="service-features">
+                            <li>Private appointment times</li>
+                            <li>Extended consultation and service</li>
+                            <li>Biblical wisdom and counsel</li>
+                            <li>Complimentary beverage</li>
+                            <li>Premium product application</li>
+                        </ul>
+                        
+                        <div class="service-price">R150</div>
+                        
+                        <p class="scriptural">"Whatever you do, work at it with all your heart, as working for the Lord"</p>
+                        <span class="scripture-ref">Colossians 3:23</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Service Experience</h2>
+                <p>Step into our sanctuary of grooming</p>
+                <div class="bible-icon">
+                    <i class="fas fa-walking"></i>
+                </div>
+            </div>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Prayerful Welcome</h3>
+                        <p>We begin each service with a moment of reflection or prayer, inviting God's presence into our work.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Detailed Consultation</h3>
+                        <p>We listen carefully to understand your vision and offer professional guidance.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Precision Service</h3>
+                        <p>Expert execution of your desired look with attention to every detail.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Spiritual Encouragement</h3>
+                        <p>Optional biblical encouragement tailored to your current season of life.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+                <p>Hear what our clients say about their experience</p>
+                <div class="bible-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        Dru-Lee doesn't just cut hair - he ministers to the soul. I always leave feeling spiritually refreshed as well as looking my best.
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James M">
+                        <div>
+                            <h4>James M.</h4>
+                            <p>Regular Client</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        The attention to detail is incredible! My son was nervous for his first haircut, but Dru-Lee made him feel so comfortable with stories and patience.
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah K">
+                        <div>
+                            <h4>Sarah K.</h4>
+                            <p>Mother of Client</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        As a busy executive, I appreciate the private appointment times. The spiritual counsel I receive during my haircut often gives me perspective for the week ahead.
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="David T">
+                        <div>
+                            <h4>David T.</h4>
+                            <p>Executive Client</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking">
+        <div class="container">
+            <div class="section-title">
+                <h2>Book Your Appointment</h2>
+                <p>Experience the Masters Touch difference</p>
+                <div class="bible-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+            </div>
+            
+            <div class="booking-options">
+                <div class="booking-option">
+                    <div class="booking-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p>Speak directly with Dru-Lee to book your appointment</p>
+                    <p><strong>+27 83 262 2790</strong></p>
+                    <a href="tel:+27832622790" class="btn">Call Now</a>
+                </div>
+                
+                <div class="booking-option">
+                    <div class="booking-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp</h3>
+                    <p>Message us on WhatsApp for quick booking</p>
+                    <a href="https://api.whatsapp.com/send?phone=%2B27832622790" class="btn btn-outline">Chat on WhatsApp</a>
+                </div>
+                
+                <div class="booking-option">
+                    <div class="booking-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>Send us an email with your preferred date and time</p>
+                    <a href="mailto:dru-lee.thomas@outlook.com" class="btn btn-outline">Send Email</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Masters Touch Barbers</h3>
+                    <p>Precision cuts and spiritual care for gentlemen of all ages. Experience the difference of a barber's touch guided by faith.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/people/Dru-lee-Thomas/61555440681181/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/dru_lee_thomas/?hl=en"><i class="fab fa-instagram"></i></a>
+                        <a href="https://api.whatsapp.com/send?phone=%2B27832622790"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i>  73 Dowling Avenue, Johannesburg, Gauteng</p>
+                    <p><i class="fas fa-phone"></i>  +27 83 262 2790</p>
+                    <p><i class="fas fa-envelope"></i>  dru-lee.thomas@outlook.com</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="home.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="service.html">Services</a>
+                    <a href="hours.html">Hours & Location</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Masters Touch Barbers. All rights reserved. Developed by ProfilePerfectProductions.</p>
+                <p class="scriptural" style="margin-top: 10px;">"Commit to the Lord whatever you do, and he will establish your plans" <br>Proverbs 16:3</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation for service cards on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.service-card, .step, .testimonial-card, .booking-option').forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>

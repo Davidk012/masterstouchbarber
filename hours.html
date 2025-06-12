@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hours & Location - Masters Touch Barbers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #2c1e16;
+            --primary-medium: #5d4037;
+            --primary-light: #d7ccc8;
+            --accent-black: #1a1a1a;
+            --accent-gold: #c9a769;
+            --accent-burgundy: #8B0000;
+            --text-light: #f5f5f5;
+            --text-dark: #333;
+            --scripture-gold: #d4af37;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f9f9f9 0%, #f0e6dc 100%);
+            overflow-x: hidden;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f0e6dc"/><path d="M0 50 Q 25 25, 50 50 T 100 50" fill="none" stroke="%23d7ccc8" stroke-width="0.5" opacity="0.2"/></svg>');
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .scriptural {
+            font-family: 'Cinzel', serif;
+            color: var(--accent-burgundy);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, var(--primary-dark), var(--accent-black));
+            color: var(--text-light);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 1.8rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav a:hover {
+            color: var(--accent-gold);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 30, 22, 0.85), rgba(44, 30, 22, 0.85)), 
+                        url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .scripture-verse {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin: 1.5rem 0;
+            color: var(--scripture-gold);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .scripture-ref {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 14px 32px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            margin: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover:before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            background: #d4b87b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-gold);
+        }
+
+        .bible-icon {
+            font-size: 2.5rem;
+            color: var(--accent-burgundy);
+            margin-bottom: 1rem;
+        }
+
+        /* Hours Section */
+        .hours-section {
+            background: var(--text-light);
+        }
+
+        .hours-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hours-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid var(--accent-gold);
+            text-align: center;
+        }
+
+        .hours-card h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+        }
+
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        .hours-table td {
+            padding: 14px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1.1rem;
+        }
+
+        .hours-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .hours-table td:first-child {
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .hours-table td:last-child {
+            text-align: right;
+        }
+
+        .closed {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+
+        .special-notes {
+            background: var(--primary-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        /* Location Section */
+        .location-section {
+            background: var(--primary-light);
+        }
+
+        .location-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .location-info {
+            background: white;
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid var(--accent-gold);
+        }
+
+        .location-info h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            margin-right: 1rem;
+            min-width: 30px;
+        }
+
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Transportation Section */
+        .transport-section {
+            background: linear-gradient(rgba(44, 30, 22, 0.85), rgba(44, 30, 22, 0.85)), 
+                        url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--text-light);
+        }
+
+        .transport-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .transport-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(201, 167, 105, 0.3);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .transport-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .transport-icon {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, var(--primary-dark), var(--accent-black));
+            color: var(--text-light);
+            padding: 3rem 0 1.5rem;
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-gold);
+        }
+
+        .footer-column p, .footer-column a {
+            color: #ddd;
+            margin-bottom: 0.8rem;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent-gold);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 1.5rem;
+                justify-content: center;
+            }
+
+            nav li {
+                margin: 0 0.8rem;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav li {
+                margin: 0.5rem 0;
+            }
+
+            .hero {
+                height: 50vh;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hours-table td {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Masters <span>Touch</span> Barbers</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="hours.html">Hours</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="bible-icon">
+                <i class="fas fa-clock"></i>
+            </div>
+            <h2>Our Hours & Location</h2>
+            <p>Find us in the heart of Johannesburg</p>
+            
+            <div class="scripture-verse">
+                "There is a time for everything, and a season for every activity under the heavens"
+                <span class="scripture-ref">Ecclesiastes 3:1</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hours Section -->
+    <section id="hours" class="hours-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Operating Hours</h2>
+                <p>Plan your visit to our sanctuary</p>
+                <div class="bible-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+            </div>
+            
+            <div class="hours-container">
+                <div class="hours-card">
+                    <h3>Our Regular Hours</h3>
+                    <table class="hours-table">
+                        <tr>
+                            <td>Monday - Tuesday</td>
+                            <td class="closed">Closed</td>
+                        </tr>
+                        <tr>
+                            <td>Wednesday - Thursday</td>
+                            <td>9:00 AM - 5:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>Friday</td>
+                            <td>9:00 AM - 6:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>Saturday</td>
+                            <td>8:00 AM - 8:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>Sunday</td>
+                            <td>3:00 PM - 8:00 PM</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="special-notes">
+                        <p><i class="fas fa-star"></i> Walk-ins are always welcome</p>
+                        <p><i class="fas fa-star"></i> Appointments recommended on weekends</p>
+                        <p><i class="fas fa-star"></i> Extended hours available by request</p>
+                    </div>
+                    
+                    <p class="scriptural" style="margin-top: 1.5rem;">"Six days you shall labor, but on the seventh day you shall rest"</p>
+                    <span class="scripture-ref">Exodus 34:21</span>
+                </div>
+                
+                <div class="hours-card">
+                    <h3>Holiday Schedule</h3>
+                    <table class="hours-table">
+                        <tr>
+                            <td>New Year's Day</td>
+                            <td class="closed">Closed</td>
+                        </tr>
+                        <tr>
+                            <td>Good Friday</td>
+                            <td>10:00 AM - 3:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>Easter Sunday</td>
+                            <td class="closed">Closed</td>
+                        </tr>
+                        <tr>
+                            <td>Freedom Day (April 27)</td>
+                            <td>10:00 AM - 4:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>Workers' Day (May 1)</td>
+                            <td class="closed">Closed</td>
+                        </tr>
+                        <tr>
+                            <td>Christmas Day</td>
+                            <td class="closed">Closed</td>
+                        </tr>
+                        <tr>
+                            <td>Day of Goodwill</td>
+                            <td>10:00 AM - 4:00 PM</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="special-notes">
+                        <p><i class="fas fa-info-circle"></i> Special hours may apply during holidays. Please call ahead to confirm.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="location-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Location</h2>
+                <p>Visit us in Johannesburg</p>
+                <div class="bible-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+            </div>
+            
+            <div class="location-container">
+                <div class="location-info">
+                    <h3>Find Our Sanctuary</h3>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Address</h4>
+                            <p>73 Dowling Avenue, Johannesburg, Gauteng</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+27 83 262 2790</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>dru-lee.thomas@outlook.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-parking"></i>
+                        </div>
+                        <div>
+                            <h4>Parking</h4>
+                            <p>Free street parking available<br>Designated parking behind building</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-wheelchair"></i>
+                        </div>
+                        <div>
+                            <h4>Accessibility</h4>
+                            <p>Wheelchair accessible entrance<br>ADA compliant facilities</p>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html" class="btn" style="margin-top: 1.5rem; display: block; text-align: center;">
+                        Get Directions
+                    </a>
+                </div>
+                
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.092566368789!2d27.967334!3d-26.182575!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950a4d71f6c541%3A0xfc51ef09b268c729!2s73%20Dowling%20Ave%2C%20Westbury%2C%20Johannesburg%2C%202093!5e0!3m2!1sen!2sza!4v1718020312340!5m2!1sen!2sza" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transportation Section -->
+    <section class="transport-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Getting Here</h2>
+                <p>Convenient transportation options</p>
+                <div class="bible-icon">
+                    <i class="fas fa-bus"></i>
+                </div>
+            </div>
+            
+            <div class="transport-options">
+                <div class="transport-card">
+                    <div class="transport-icon">
+                        <i class="fas fa-bus"></i>
+                    </div>
+                    <h3>Public Bus</h3>
+                    <p>Routes 12, 45, and 78 stop within 2 blocks of our location. Johannesburg Bus Service runs every 20 minutes.</p>
+                </div>
+                
+                <div class="transport-card">
+                    <div class="transport-icon">
+                        <i class="fas fa-train"></i>
+                    </div>
+                    <h3>Train</h3>
+                    <p>Westbury Station is a 10-minute walk away. Gautrain services connect to all major areas of Johannesburg.</p>
+                </div>
+                
+                <div class="transport-card">
+                    <div class="transport-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Driving</h3>
+                    <p>Easy access from N1 and M1 highways. Free parking available behind our building and on the street.</p>
+                </div>
+                
+                <div class="transport-card">
+                    <div class="transport-icon">
+                        <i class="fas fa-taxi"></i>
+                    </div>
+                    <h3>Ride Share</h3>
+                    <p>Uber and Bolt services are readily available throughout Johannesburg. Use our address for drop-off.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Masters Touch Barbers</h3>
+                    <p>Precision cuts and spiritual care for gentlemen of all ages. Experience the difference of a barber's touch guided by faith.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/people/Dru-lee-Thomas/61555440681181/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/dru_lee_thomas/?hl=en"><i class="fab fa-instagram"></i></a>
+                        <a href="https://api.whatsapp.com/send?phone=%2B27832622790"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i>  73 Dowling Avenue, Johannesburg, Gauteng</p>
+                    <p><i class="fas fa-phone"></i>  +27 83 262 2790</p>
+                    <p><i class="fas fa-envelope"></i>  dru-lee.thomas@outlook.com</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="home.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="service.html">Services</a>
+                    <a href="hours.html">Hours & Location</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Masters Touch Barbers. All rights reserved. Developed by ProfilePerfectProductions.</p>
+                <p class="scriptural" style="margin-top: 10px;">"Commit to the Lord whatever you do, and he will establish your plans" <br>Proverbs 16:3</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Current day highlighting
+        document.addEventListener('DOMContentLoaded', function() {
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const today = new Date().getDay();
+            const todayName = days[today];
+            
+            const tableRows = document.querySelectorAll('.hours-table tr');
+            tableRows.forEach(row => {
+                if (row.textContent.includes(todayName)) {
+                    row.style.backgroundColor = 'rgba(201, 167, 105, 0.1)';
+                    row.style.fontWeight = '600';
+                    const cell = row.querySelector('td:first-child');
+                    if (cell) {
+                        cell.innerHTML = `<i class="fas fa-calendar-day" style="color: var(--accent-gold); margin-right: 8px;"></i>${cell.textContent}`;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
