@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Masters Touch Barbers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #2c1e16;   /* Dark brown */
+            --primary-medium: #5d4037;  /* Medium brown */
+            --primary-light: #d7ccc8;   /* Light brown */
+            --accent-black: #1a1a1a;    /* Black */
+            --accent-gold: #c9a769;     /* Gold accent */
+            --accent-burgundy: #8B0000; /* Deep red for biblical accent */
+            --text-light: #f5f5f5;
+            --text-dark: #333;
+            --scripture-gold: #d4af37;  /* Gold for scripture references */
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f9f9f9 0%, #f0e6dc 100%);
+            overflow-x: hidden;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f0e6dc"/><path d="M0 50 Q 25 25, 50 50 T 100 50" fill="none" stroke="%23d7ccc8" stroke-width="0.5" opacity="0.2"/></svg>');
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .scriptural {
+            font-family: 'Cinzel', serif;
+            color: var(--accent-burgundy);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, var(--primary-dark), var(--accent-black));
+            color: var(--text-light);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 1.8rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav a:hover {
+            color: var(--accent-gold);
+        }
+
+        nav a.active {
+            color: var(--accent-gold);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-gold);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 30, 22, 0.85), rgba(44, 30, 22, 0.85)), 
+                        url('https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .scripture-verse {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin: 1.5rem 0;
+            color: var(--scripture-gold);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .scripture-ref {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 14px 32px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            margin: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover:before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            background: #d4b87b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-gold);
+        }
+
+        .bible-icon {
+            font-size: 2.5rem;
+            color: var(--accent-burgundy);
+            margin-bottom: 1rem;
+        }
+
+        /* About Section */
+        .about-founder {
+            background: var(--text-light);
+        }
+
+        .about-content {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border: 3px solid var(--accent-gold);
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .founder-quote {
+            background: rgba(44, 30, 22, 0.9);
+            color: var(--text-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .founder-quote p {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        /* Journey Section */
+        .journey {
+            background: var(--primary-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .journey:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100"><path d="M20,20 Q40,5 60,20 T100,20 Q85,40 100,60 T100,100 Q80,85 60,100 T20,100 Q5,80 20,60 T20,20" fill="none" stroke="%235d4037" stroke-width="0.3" opacity="0.1"/></svg>');
+            z-index: 0;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--accent-gold);
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background: var(--text-light);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--accent-gold);
+            position: relative;
+        }
+
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-gold);
+            top: 30px;
+            border-radius: 50%;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -50px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -50px;
+        }
+
+        .timeline-year {
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+        }
+
+        /* Mission Section */
+        .mission {
+            background: linear-gradient(rgba(44, 30, 22, 0.9), rgba(44, 30, 22, 0.9)), url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .mission-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            border: 1px solid rgba(201, 167, 105, 0.5);
+        }
+
+        .mission-statement {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin: 2rem 0;
+        }
+
+        .mission-icon {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin: 1rem 0;
+        }
+
+        /* Values Section */
+        .values {
+            background: var(--text-light);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            padding: 2rem;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--accent-gold);
+            transition: all 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--primary-light);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--text-light);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--accent-gold);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--accent-gold);
+            opacity: 0.2;
+            font-family: serif;
+        }
+
+        .testimonial-text {
+            margin: 1rem 0;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+            color: var(--primary-dark);
+        }
+
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: var(--primary-medium);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, var(--primary-dark), var(--accent-black));
+            color: var(--text-light);
+            padding: 3rem 0 1.5rem;
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-gold);
+        }
+
+        .footer-column p, .footer-column a {
+            color: #ddd;
+            margin-bottom: 0.8rem;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent-gold);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 1.5rem;
+                justify-content: center;
+            }
+
+            nav li {
+                margin: 0 0.8rem;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .timeline::before {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+                text-align: left !important;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: 15px;
+                right: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav li {
+                margin: 0.5rem 0;
+            }
+
+            .hero {
+                height: 50vh;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Masters <span>Touch</span> Barbers</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="hours.html">Hours</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="bible-icon">
+                <i class="fas fa-hands-praying"></i>
+            </div>
+            <h2>Our Story & Mission</h2>
+            <p>Discover the passion and purpose behind Masters Touch Barbers</p>
+            
+            <div class="scripture-verse">
+                "For we are God's handiwork, created in Christ Jesus to do good works"
+                <span class="scripture-ref">Ephesians 2:10</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Founder Section -->
+    <section id="founder" class="about-founder">
+        <div class="container">
+            <div class="section-title">
+                <h2>Meet Your Master Barber</h2>
+                <div class="bible-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Dru-Lee Thomas</h3>
+                    <p>With over 4 years of experience in the art of barbering, Dru-Lee Thomas brings exceptional skill and passion to every haircut. Guided by his faith, Dru-Lee sees his work as a ministry of service, treating each client with the care and respect they deserve as creations of God.</p>
+                    <p>"The Lord does not look at the things people look at. People look at the outward appearance, but the Lord looks at the heart." <span class="scriptural">1 Samuel 16:7</span>. At Masters Touch, we strive to enhance your outward appearance while recognizing the inherent worth within every person.</p>
+                    
+                    <div class="founder-quote">
+                        <p>"Barbering is not just a profession for me, it's a calling. Every time I pick up my clippers, I'm reminded that I'm serving God by helping people look and feel their best."</p>
+                        <p class="scriptural">- Dru-Lee Thomas, Founder</p>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80" alt="Dru-Lee Thomas - Master Barber">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section class="journey">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Journey</h2>
+                <p>From humble beginnings to a place of service</p>
+                <div class="bible-icon">
+                    <i class="fas fa-road"></i>
+                </div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <h3>The Calling</h3>
+                        <p>After feeling called to serve through barbering, Dru-Lee began his apprenticeship at a local barbershop, honing his skills and discovering his passion for the craft.</p>
+                        <p class="scriptural">"Commit your work to the Lord, and your plans will be established" <br>Proverbs 16:3</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021</div>
+                        <h3>First Chair</h3>
+                        <p>Dru-Lee earned his barber's license and began working full-time, developing his signature style and building a loyal clientele who appreciated both his skill and spiritual approach.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2022</div>
+                        <h3>Vision Takes Shape</h3>
+                        <p>The vision for Masters Touch Barbers was born - a place where skill meets spirit, where men could not only get a great haircut but also experience genuine care and community.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3>Grand Opening</h3>
+                        <p>Masters Touch Barbers opened its doors in Johannesburg, with a dedication service to bless the space and commit the business to God's purpose.</p>
+                        <p class="scriptural">"Unless the Lord builds the house, the builders labor in vain" <br>Psalm 127:1</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025</div>
+                        <h3>Expanding Impact</h3>
+                        <p>Today, Masters Touch serves hundreds of clients each month, with plans to expand mentorship programs for young barbers seeking to integrate faith and craft.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Mission</h2>
+                <p>More than just haircuts</p>
+                <div class="bible-icon">
+                    <i class="fas fa-cross"></i>
+                </div>
+            </div>
+            
+            <div class="mission-content">
+                <div class="mission-icon">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <h3>Serving with Excellence, Honoring God</h3>
+                
+                <div class="mission-statement">
+                    <p>At Masters Touch Barbers, our mission is to provide exceptional grooming services while creating a sanctuary where men can experience God's love through our service. We believe that barbering is a ministry that allows us to:</p>
+                    
+                    <ul style="text-align: left; margin: 2rem 0; padding-left: 2rem;">
+                        <li style="margin-bottom: 1rem;">Restore dignity and confidence through quality grooming</li>
+                        <li style="margin-bottom: 1rem;">Create a space for authentic conversation and fellowship</li>
+                        <li style="margin-bottom: 1rem;">Serve each client as if serving Christ Himself</li>
+                        <li style="margin-bottom: 1rem;">Provide mentorship to young men in our community</li>
+                        <li>Use our resources to support local ministries and outreach</li>
+                    </ul>
+                    
+                    <p>"Each of you should use whatever gift you have received to serve others, as faithful stewards of God's grace in its various forms." <span class="scriptural">1 Peter 4:10</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Core Values</h2>
+                <p>Guided by biblical principles</p>
+                <div class="bible-icon">
+                    <i class="fas fa-bible"></i>
+                </div>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>We strive for excellence in every haircut, seeing our work as an offering to God.</p>
+                    <p class="scriptural">"Whatever you do, work at it with all your heart" <br>Colossians 3:23</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Compassion</h3>
+                    <p>We treat each client with Christ-like compassion, recognizing their inherent worth.</p>
+                    <p class="scriptural">"Be kind and compassionate to one another" <br>Ephesians 4:32</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-hands-praying"></i>
+                    </div>
+                    <h3>Integrity</h3>
+                    <p>We conduct business with honesty, transparency, and biblical principles.</p>
+                    <p class="scriptural">"Whoever walks in integrity walks securely" <br>Proverbs 10:9</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-people-arrows"></i>
+                    </div>
+                    <h3>Community</h3>
+                    <p>We foster genuine community where men can share life and encourage one another.</p>
+                    <p class="scriptural">"Carry each other's burdens" <br>Galatians 6:2</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+                <p>What our clients say about us</p>
+                <div class="bible-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Dru-Lee is more than a barber - he's a blessing. I always leave Masters Touch feeling refreshed in spirit as well as in appearance. The atmosphere of peace and professionalism is unmatched."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">TM</div>
+                        <div class="author-info">
+                            <h4>Thabo Mbeki</h4>
+                            <p>Client for 3 years</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "I bring my sons here every month. Not only do they get great haircuts, but they also receive godly wisdom and encouragement. This place is transforming how my boys see themselves."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SN</div>
+                        <div class="author-info">
+                            <h4>Sipho Nkosi</h4>
+                            <p>Father of two clients</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "As a busy professional, I appreciate the efficiency and skill. But what keeps me coming back is the spiritual nourishment. The conversations and prayers have helped me through tough times."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DM</div>
+                        <div class="author-info">
+                            <h4>David Moloi</h4>
+                            <p>Client since opening</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Masters Touch Barbers</h3>
+                    <p>Precision cuts and spiritual care for gentlemen of all ages. Experience the difference of a barber's touch guided by faith.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/people/Dru-lee-Thomas/61555440681181/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/dru_lee_thomas/?hl=en"><i class="fab fa-instagram"></i></a>
+                        <a href="https://api.whatsapp.com/send?phone=%2B27832622790&context=Afeza0FiWnEs0BiPH__PQksMpAdYk2n76OV2nYTeAbYC3JgqLxEoNY7ZIge3CM6zY5Q6edYeOpjDYY_7e8EsOguchKEdkfzv47BGGM73W_oObvr077f3UQSoYM2kaumqwF0lrYs6qOqzV3iWNL6A881srg&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwY2xjawK3xMxleHRuA2FlbQIxMABicmlkETE4R2t2eEk2TzRjNkg1dGxrAR7yEcjVoa-UUwlyqJnvF3ZKB_7_Dr4kFVURYdGET-vHsT0d96RLTdGoje29Uw_aem_yGN-tZmtbzHWObOGSmA8VQ"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i>  73 Dowling Avenue, Johannesburg, Gauteng</p>
+                    <p><i class="fas fa-phone"></i>  +27 83 262 2790</p>
+                    <p><i class="fas fa-envelope"></i>  dru-lee.thomas@outlook.com</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="home.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="service.html">Services</a>
+                    <a href="hours.html">Hours & Location</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Masters Touch Barbers. All rights reserved. Developed by ProfilePerfectProductions.</p>
+                <p class="scriptural" style="margin-top: 10px;">"May the favor of the Lord our God rest on us; establish the work of our hands for us" <br>Psalm 90:17</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation for timeline items
+        const timelineItems = document.querySelectorAll('.timeline-content');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.2 });
+
+        timelineItems.forEach(item => {
+            item.style.opacity = 0;
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+            observer.observe(item);
+        });
+
+        // Animation for value cards
+        const valueCards = document.querySelectorAll('.value-card');
+        
+        valueCards.forEach((card, index) => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `opacity 0.7s ease ${index * 0.2}s, transform 0.7s ease ${index * 0.2}s`;
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
