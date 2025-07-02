@@ -3,7 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - Masters Touch Barbers</title>
+    <title>Premium Barber Services - Masters Touch Barbers | Johannesburg</title>
+    <meta name="description" content="Experience premium haircuts with spiritual purpose at Masters Touch Barbers in Johannesburg. Book your appointment today.">
+    <meta name="keywords" content="barber, haircut, grooming, Johannesburg, men's haircut, beard trim, spiritual barber">
+    <meta name="author" content="Masters Touch Barbers">
+    <meta property="og:title" content="Premium Barber Services - Masters Touch Barbers">
+    <meta property="og:description" content="Experience the art of barbering with Dru-Lee Thomas at Masters Touch Barbers in Johannesburg.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://masterstouchbarbers.com/services.html">
+    <meta property="og:image" content="https://masterstouchbarbers.com/images/services-og.jpg">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✂️</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -14,15 +23,16 @@
         }
 
         :root {
-            --primary-dark: #2c1e16;   /* Dark brown */
-            --primary-medium: #5d4037;  /* Medium brown */
-            --primary-light: #d7ccc8;   /* Light brown */
-            --accent-black: #1a1a1a;    /* Black */
-            --accent-gold: #c9a769;     /* Gold accent */
-            --accent-burgundy: #8B0000; /* Deep red for biblical accent */
+            --primary-dark: #2c1e16;
+            --primary-medium: #5d4037;
+            --primary-light: #d7ccc8;
+            --accent-black: #1a1a1a;
+            --accent-gold: #c9a769;
+            --accent-burgundy: #8B0000;
             --text-light: #f5f5f5;
             --text-dark: #333;
-            --scripture-gold: #d4af37;  /* Gold for scripture references */
+            --scripture-gold: #d4af37;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         body {
@@ -31,7 +41,6 @@
             color: var(--text-dark);
             background: linear-gradient(135deg, #f9f9f9 0%, #f0e6dc 100%);
             overflow-x: hidden;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f0e6dc"/><path d="M0 50 Q 25 25, 50 50 T 100 50" fill="none" stroke="%23d7ccc8" stroke-width="0.5" opacity="0.2"/></svg>');
         }
 
         h1, h2, h3, h4 {
@@ -104,8 +113,10 @@
             padding: 5px 0;
         }
 
-        nav a:hover {
+        nav a:hover,
+        nav a:focus {
             color: var(--accent-gold);
+            outline: none;
         }
 
         nav a::after {
@@ -119,8 +130,35 @@
             transition: width 0.3s;
         }
 
-        nav a:hover::after {
+        nav a:hover::after,
+        nav a:focus::after {
             width: 100%;
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1100;
+            background: none;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .menu-toggle span {
+            height: 3px;
+            width: 25px;
+            background: var(--accent-gold);
+            margin-bottom: 5px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle:focus {
+            outline: 2px solid var(--accent-gold);
+            outline-offset: 2px;
         }
 
         /* Hero Section */
@@ -130,6 +168,7 @@
             background-size: cover;
             background-position: center;
             height: 60vh;
+            min-height: 400px;
             display: flex;
             align-items: center;
             text-align: center;
@@ -184,7 +223,7 @@
             transition: all 0.3s;
             cursor: pointer;
             margin: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
         }
@@ -200,14 +239,17 @@
             transition: 0.5s;
         }
 
-        .btn:hover:before {
+        .btn:hover:before,
+        .btn:focus:before {
             left: 100%;
         }
 
-        .btn:hover {
+        .btn:hover,
+        .btn:focus {
             background: #d4b87b;
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            outline: none;
         }
 
         .btn-outline {
@@ -216,7 +258,8 @@
             color: var(--accent-gold);
         }
 
-        .btn-outline:hover {
+        .btn-outline:hover,
+        .btn-outline:focus {
             background: var(--accent-gold);
             color: var(--primary-dark);
         }
@@ -267,7 +310,7 @@
             background: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: var(--shadow);
             transition: transform 0.3s, box-shadow 0.3s;
             border-top: 4px solid var(--accent-gold);
         }
@@ -322,6 +365,24 @@
             font-weight: bold;
         }
 
+        .book-service {
+            display: block;
+            text-align: center;
+            margin-top: 1.5rem;
+            padding: 12px 0;
+            background: var(--primary-medium);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .book-service:hover,
+        .book-service:focus {
+            background: var(--primary-dark);
+            outline: none;
+        }
+
         .scripture-ref {
             display: block;
             margin-top: 1rem;
@@ -368,7 +429,7 @@
             background: white;
             padding: 1.5rem;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow);
         }
 
         .step:not(:last-child):after {
@@ -380,7 +441,7 @@
             color: var(--accent-gold);
         }
 
-        /* Testimonials */
+        /* Testimonials Carousel */
         .testimonials {
             background: linear-gradient(rgba(44, 30, 22, 0.9), rgba(44, 30, 22, 0.9)), url('https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
@@ -389,11 +450,23 @@
             text-align: center;
         }
 
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+        .testimonial-carousel {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .testimonial-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 2rem;
+            box-sizing: border-box;
         }
 
         .testimonial-card {
@@ -409,6 +482,7 @@
             font-style: italic;
             margin-bottom: 1.5rem;
             position: relative;
+            font-size: 1.1rem;
         }
 
         .testimonial-content:before,
@@ -449,33 +523,174 @@
             margin: 0.5rem 0;
         }
 
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+            gap: 10px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .carousel-dot.active {
+            background: var(--accent-gold);
+        }
+
         /* Booking Section */
         .booking {
             background: var(--text-light);
             text-align: center;
         }
 
-        .booking-options {
+        .booking-container {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .booking-option {
-            flex: 0 0 calc(33% - 2rem);
-            padding: 2rem;
+        .booking-calendar {
+            flex: 1;
+            min-width: 300px;
             background: white;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border-top: 4px solid var(--accent-gold);
+            padding: 25px;
+            box-shadow: var(--shadow);
         }
 
-        .booking-icon {
-            font-size: 2.5rem;
-            color: var(--accent-gold);
-            margin-bottom: 1rem;
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .calendar-header button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-dark);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .calendar-header button:hover {
+            background: var(--primary-light);
+        }
+
+        .calendar-weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+
+        .calendar-day {
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .calendar-day:hover:not(.empty) {
+            background: var(--primary-light);
+        }
+
+        .calendar-day.selected {
+            background: var(--accent-gold);
+            color: white;
+        }
+
+        .time-slots {
+            margin-top: 20px;
+        }
+
+        .slot-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+            justify-content: center;
+        }
+
+        .time-slot {
+            padding: 10px 15px;
+            background: var(--primary-light);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-width: 90px;
+        }
+
+        .time-slot:hover {
+            background: var(--accent-gold);
+            color: white;
+        }
+
+        .time-slot.selected {
+            background: var(--primary-medium);
+            color: white;
+        }
+
+        .booking-form {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: 2px solid var(--accent-gold);
+            border-color: transparent;
         }
 
         /* Footer */
@@ -519,8 +734,10 @@
             transition: color 0.3s;
         }
 
-        .footer-column a:hover {
+        .footer-column a:hover,
+        .footer-column a:focus {
             color: var(--accent-gold);
+            outline: none;
         }
 
         .social-icons {
@@ -540,9 +757,11 @@
             transition: all 0.3s;
         }
 
-        .social-icons a:hover {
+        .social-icons a:hover,
+        .social-icons a:focus {
             background: var(--accent-gold);
             transform: translateY(-3px);
+            outline: none;
         }
 
         .copyright {
@@ -553,8 +772,34 @@
             color: #aaa;
         }
 
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 8px;
+            z-index: 10000;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+            outline: 2px solid var(--accent-gold);
+            outline-offset: 2px;
+        }
+
         /* Responsive */
         @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
             .step {
                 flex: 0 0 calc(50% - 2rem);
                 margin-bottom: 3rem;
@@ -563,75 +808,161 @@
             .step:not(:last-child):after {
                 display: none;
             }
-            
-            .booking-option {
-                flex: 0 0 calc(50% - 2rem);
-            }
         }
 
         @media (max-width: 768px) {
             .header-container {
-                flex-direction: column;
+                flex-direction: row;
                 text-align: center;
             }
-
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
             nav ul {
-                margin-top: 1.5rem;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--primary-dark);
+                flex-direction: column;
+                align-items: center;
                 justify-content: center;
+                transition: all 0.5s ease;
+                z-index: 1000;
+                padding-top: 80px;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
             }
-
+            
+            nav ul.active {
+                right: 0;
+            }
+            
             nav li {
-                margin: 0 0.8rem;
+                margin: 1.5rem 0;
             }
-
+            
+            nav a {
+                padding: 12px 24px;
+                font-size: 1.2rem;
+            }
+            
+            .close-btn {
+                position: absolute;
+                top: 25px;
+                right: 25px;
+                color: var(--accent-gold);
+                font-size: 1.8rem;
+                cursor: pointer;
+                padding: 10px;
+                background: none;
+                border: none;
+            }
+            
+            .close-btn:focus {
+                outline: 2px solid var(--accent-gold);
+                outline-offset: 2px;
+            }
+            
+            .hero {
+                height: 50vh;
+            }
+            
             .hero h2 {
                 font-size: 2.5rem;
             }
-
+            
             .hero p {
                 font-size: 1.1rem;
             }
-
-            .step {
-                flex: 0 0 100%;
+            
+            .section-title h2 {
+                font-size: 1.8rem;
             }
             
-            .booking-option {
-                flex: 0 0 100%;
+            .service-icon, .value-icon {
+                font-size: 2.5rem;
+            }
+            
+            .service-price {
+                font-size: 1.5rem;
+            }
+            
+            .booking-container {
+                flex-direction: column;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .testimonial-carousel {
+                margin-top: 2rem;
             }
         }
 
-        @media (max-width: 480px) {
-            nav ul {
-                flex-direction: column;
+        @media (max-width: 576px) {
+            .logo h1 {
+                font-size: 1.5rem;
             }
-
-            nav li {
-                margin: 0.5rem 0;
-            }
-
-            .hero {
-                height: 70vh;
-            }
-
+            
             .hero h2 {
                 font-size: 2rem;
+            }
+            
+            .scripture-verse {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 12px 24px;
+                font-size: 1rem;
+                margin: 5px;
+            }
+            
+            .section-title::after {
+                width: 60px;
+            }
+            
+            nav li {
+                margin: 1.2rem 0;
+            }
+            
+            nav a {
+                padding: 12px 20px;
+            }
+            
+            .step {
+                flex: 0 0 100%;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Skip link for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo">
                 <h1>Masters <span>Touch</span> Barbers</h1>
             </div>
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
             <nav>
-                <ul>
+                <ul id="nav-menu">
+                    <li><button class="close-btn" id="close-menu" aria-label="Close menu"><i class="fas fa-times"></i></button></li>
                     <li><a href="home.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="service.html">Services</a></li>
+                    <li><a href="service.html" class="active">Services</a></li>
                     <li><a href="hours.html">Hours</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -639,346 +970,418 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="bible-icon">
-                <i class="fas fa-cut"></i>
-            </div>
-            <h2>Our Barbering Services</h2>
-            <p>Experience exceptional grooming with a spiritual touch</p>
-            
-            <div class="scripture-verse">
-                "Each of you should use whatever gift you have received to serve others"
-                <span class="scripture-ref">1 Peter 4:10</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Premium Barber Services</h2>
-                <p>Precision cuts with spiritual purpose</p>
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
                 <div class="bible-icon">
-                    <i class="fas fa-hands-praying"></i>
+                    <i class="fas fa-cut"></i>
                 </div>
+                <h2>Our Barbering Services</h2>
+                <p>Experience exceptional grooming with a spiritual touch</p>
+                
+                <div class="scripture-verse">
+                    "Each of you should use whatever gift you have received to serve others"
+                    <span class="scripture-ref">1 Peter 4:10</span>
+                </div>
+                
+                <a href="#booking" class="btn">Book Appointment Now</a>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">
-                            <i class="fas fa-cut"></i>
-                        </div>
-                        <h3>Men's Haircut</h3>
-                    </div>
-                    <div class="service-content">
-                        <p>A precision cut tailored to your style and preferences, performed with excellence as unto the Lord.</p>
-                        
-                        <ul class="service-features">
-                            <li>Detailed consultation to understand your needs</li>
-                            <li>Precision cutting with professional tools</li>
-                            <li>Neck shave and clean-up</li>
-                            <li>Styling advice and product application</li>
-                        </ul>
-                        
-                        <div class="service-price">R65</div>
-                        
-                        <p class="scriptural">"Let the favor of the Lord our God be upon us, and establish the work of our hands"</p>
-                        <span class="scripture-ref">Psalm 90:17</span>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <h3>Teenage Haircut</h3>
-                    </div>
-                    <div class="service-content">
-                        <p>Specialized cuts for young gentlemen learning to walk in faith and express their God-given identity.</p>
-                        
-                        <ul class="service-features">
-                            <li>Age-appropriate style consultation</li>
-                            <li>Modern cuts that reflect personal style</li>
-                            <li>Guidance on hair maintenance</li>
-                            <li>Special attention to comfort and experience</li>
-                        </ul>
-                        
-                        <div class="service-price">R55</div>
-                        
-                        <p class="scriptural">"Don't let anyone look down on you because you are young, but set an example"</p>
-                        <span class="scripture-ref">1 Timothy 4:12</span>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">
-                            <i class="fas fa-child"></i>
-                        </div>
-                        <h3>Boys Haircut</h3>
-                    </div>
-                    <div class="service-content">
-                        <p>Fun and comfortable haircuts for boys, recognizing each child as a precious gift from God.</p>
-                        
-                        <ul class="service-features">
-                            <li>Patient and gentle approach</li>
-                            <li>Fun, age-appropriate styles</li>
-                            <li>Distraction techniques for nervous children</li>
-                            <li>Special "first haircut" certificate</li>
-                        </ul>
-                        
-                        <div class="service-price">R50</div>
-                        
-                        <p class="scriptural">"Children are a heritage from the Lord, offspring a reward from him"</p>
-                        <span class="scripture-ref">Psalm 127:3</span>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">
-                            <i class="fas fa-razor"></i>
-                        </div>
-                        <h3>Beard Trim & Shape-Up</h3>
-                    </div>
-                    <div class="service-content">
-                        <p>Professional beard grooming to enhance your appearance while maintaining your God-given features.</p>
-                        
-                        <ul class="service-features">
-                            <li>Detailed beard analysis</li>
-                            <li>Precision trimming and shaping</li>
-                            <li>Hot towel treatment</li>
-                            <li>Beard oil application</li>
-                        </ul>
-                        
-                        <div class="service-price">R45</div>
-                        
-                        <p class="scriptural">"The glory of young men is their strength, gray hair the splendor of the old"</p>
-                        <span class="scripture-ref">Proverbs 20:29</span>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">
-                            <i class="fas fa-spa"></i>
-                        </div>
-                        <h3>Deluxe Grooming Package</h3>
-                    </div>
-                    <div class="service-content">
-                        <p>The ultimate grooming experience for the discerning gentleman seeking comprehensive care.</p>
-                        
-                        <ul class="service-features">
-                            <li>Full haircut with style</li>
-                            <li>Beard trim and shape-up</li>
-                            <li>Hot towel facial treatment</li>
-                            <li>Scalp massage and conditioning</li>
-                            <li>Finishing products application</li>
-                        </ul>
-                        
-                        <div class="service-price">R120</div>
-                        
-                        <p class="scriptural">"Anoint your head with oil and wash your face"</p>
-                        <span class="scripture-ref">Matthew 6:17</span>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">
-                            <i class="fas fa-crown"></i>
-                        </div>
-                        <h3>Executive Service</h3>
-                    </div>
-                    <div class="service-content">
-                        <p>Our premium service for those who seek the finest grooming experience with spiritual counsel.</p>
-                        
-                        <ul class="service-features">
-                            <li>Private appointment times</li>
-                            <li>Extended consultation and service</li>
-                            <li>Biblical wisdom and counsel</li>
-                            <li>Complimentary beverage</li>
-                            <li>Premium product application</li>
-                        </ul>
-                        
-                        <div class="service-price">R150</div>
-                        
-                        <p class="scriptural">"Whatever you do, work at it with all your heart, as working for the Lord"</p>
-                        <span class="scripture-ref">Colossians 3:23</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Process Section -->
-    <section class="process">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Service Experience</h2>
-                <p>Step into our sanctuary of grooming</p>
-                <div class="bible-icon">
-                    <i class="fas fa-walking"></i>
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Premium Barber Services</h2>
+                    <p>Precision cuts with spiritual purpose</p>
+                    <div class="bible-icon">
+                        <i class="fas fa-hands-praying"></i>
+                    </div>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="fas fa-cut"></i>
+                            </div>
+                            <h3>Men's Haircut</h3>
+                        </div>
+                        <div class="service-content">
+                            <p>A precision cut tailored to your style and preferences, performed with excellence as unto the Lord.</p>
+                            
+                            <ul class="service-features">
+                                <li>Detailed consultation to understand your needs</li>
+                                <li>Precision cutting with professional tools</li>
+                                <li>Neck shave and clean-up</li>
+                                <li>Styling advice and product application</li>
+                            </ul>
+                            
+                            <div class="service-price">R65</div>
+                            
+                            <a href="#booking" class="book-service">Book This Service</a>
+                            
+                            <p class="scriptural">"Let the favor of the Lord our God be upon us, and establish the work of our hands"</p>
+                            <span class="scripture-ref">Psalm 90:17</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h3>Teenage Haircut</h3>
+                        </div>
+                        <div class="service-content">
+                            <p>Specialized cuts for young gentlemen learning to walk in faith and express their God-given identity.</p>
+                            
+                            <ul class="service-features">
+                                <li>Age-appropriate style consultation</li>
+                                <li>Modern cuts that reflect personal style</li>
+                                <li>Guidance on hair maintenance</li>
+                                <li>Special attention to comfort and experience</li>
+                            </ul>
+                            
+                            <div class="service-price">R55</div>
+                            
+                            <a href="#booking" class="book-service">Book This Service</a>
+                            
+                            <p class="scriptural">"Don't let anyone look down on you because you are young, but set an example"</p>
+                            <span class="scripture-ref">1 Timothy 4:12</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="fas fa-child"></i>
+                            </div>
+                            <h3>Boys Haircut</h3>
+                        </div>
+                        <div class="service-content">
+                            <p>Fun and comfortable haircuts for boys, recognizing each child as a precious gift from God.</p>
+                            
+                            <ul class="service-features">
+                                <li>Patient and gentle approach</li>
+                                <li>Fun, age-appropriate styles</li>
+                                <li>Distraction techniques for nervous children</li>
+                                <li>Special "first haircut" certificate</li>
+                            </ul>
+                            
+                            <div class="service-price">R50</div>
+                            
+                            <a href="#booking" class="book-service">Book This Service</a>
+                            
+                            <p class="scriptural">"Children are a heritage from the Lord, offspring a reward from him"</p>
+                            <span class="scripture-ref">Psalm 127:3</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="fas fa-razor"></i>
+                            </div>
+                            <h3>Beard Trim & Shape-Up</h3>
+                        </div>
+                        <div class="service-content">
+                            <p>Professional beard grooming to enhance your appearance while maintaining your God-given features.</p>
+                            
+                            <ul class="service-features">
+                                <li>Detailed beard analysis</li>
+                                <li>Precision trimming and shaping</li>
+                                <li>Hot towel treatment</li>
+                                <li>Beard oil application</li>
+                            </ul>
+                            
+                            <div class="service-price">R45</div>
+                            
+                            <a href="#booking" class="book-service">Book This Service</a>
+                            
+                            <p class="scriptural">"The glory of young men is their strength, gray hair the splendor of the old"</p>
+                            <span class="scripture-ref">Proverbs 20:29</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="fas fa-spa"></i>
+                            </div>
+                            <h3>Deluxe Grooming Package</h3>
+                        </div>
+                        <div class="service-content">
+                            <p>The ultimate grooming experience for the discerning gentleman seeking comprehensive care.</p>
+                            
+                            <ul class="service-features">
+                                <li>Full haircut with style</li>
+                                <li>Beard trim and shape-up</li>
+                                <li>Hot towel facial treatment</li>
+                                <li>Scalp massage and conditioning</li>
+                                <li>Finishing products application</li>
+                            </ul>
+                            
+                            <div class="service-price">R120</div>
+                            
+                            <a href="#booking" class="book-service">Book This Service</a>
+                            
+                            <p class="scriptural">"Anoint your head with oil and wash your face"</p>
+                            <span class="scripture-ref">Matthew 6:17</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <h3>Executive Service</h3>
+                        </div>
+                        <div class="service-content">
+                            <p>Our premium service for those who seek the finest grooming experience with spiritual counsel.</p>
+                            
+                            <ul class="service-features">
+                                <li>Private appointment times</li>
+                                <li>Extended consultation and service</li>
+                                <li>Biblical wisdom and counsel</li>
+                                <li>Complimentary beverage</li>
+                                <li>Premium product application</li>
+                            </ul>
+                            
+                            <div class="service-price">R150</div>
+                            
+                            <a href="#booking" class="book-service">Book This Service</a>
+                            
+                            <p class="scriptural">"Whatever you do, work at it with all your heart, as working for the Lord"</p>
+                            <span class="scripture-ref">Colossians 3:23</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="process-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Prayerful Welcome</h3>
-                        <p>We begin each service with a moment of reflection or prayer, inviting God's presence into our work.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Detailed Consultation</h3>
-                        <p>We listen carefully to understand your vision and offer professional guidance.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Precision Service</h3>
-                        <p>Expert execution of your desired look with attention to every detail.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Spiritual Encouragement</h3>
-                        <p>Optional biblical encouragement tailored to your current season of life.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>Client Testimonials</h2>
-                <p>Hear what our clients say about their experience</p>
-                <div class="bible-icon">
-                    <i class="fas fa-comments"></i>
-                </div>
-            </div>
-            
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        Dru-Lee doesn't just cut hair - he ministers to the soul. I always leave feeling spiritually refreshed as well as looking my best.
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James M">
-                        <div>
-                            <h4>James M.</h4>
-                            <p>Regular Client</p>
-                        </div>
+        <!-- Process Section -->
+        <section class="process">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Service Experience</h2>
+                    <p>Step into our sanctuary of grooming</p>
+                    <div class="bible-icon">
+                        <i class="fas fa-walking"></i>
                     </div>
                 </div>
                 
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        The attention to detail is incredible! My son was nervous for his first haircut, but Dru-Lee made him feel so comfortable with stories and patience.
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah K">
-                        <div>
-                            <h4>Sarah K.</h4>
-                            <p>Mother of Client</p>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Prayerful Welcome</h3>
+                            <p>We begin each service with a moment of reflection or prayer, inviting God's presence into our work.</p>
                         </div>
                     </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        As a busy executive, I appreciate the private appointment times. The spiritual counsel I receive during my haircut often gives me perspective for the week ahead.
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Detailed Consultation</h3>
+                            <p>We listen carefully to understand your vision and offer professional guidance.</p>
+                        </div>
                     </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Precision Service</h3>
+                            <p>Expert execution of your desired look with attention to every detail.</p>
+                        </div>
                     </div>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="David T">
-                        <div>
-                            <h4>David T.</h4>
-                            <p>Executive Client</p>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Spiritual Encouragement</h3>
+                            <p>Optional biblical encouragement tailored to your current season of life.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Booking Section -->
-    <section class="booking">
-        <div class="container">
-            <div class="section-title">
-                <h2>Book Your Appointment</h2>
-                <p>Experience the Masters Touch difference</p>
-                <div class="bible-icon">
-                    <i class="fas fa-calendar-alt"></i>
-                </div>
-            </div>
-            
-            <div class="booking-options">
-                <div class="booking-option">
-                    <div class="booking-icon">
-                        <i class="fas fa-phone"></i>
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Client Testimonials</h2>
+                    <p>Hear what our clients say about their experience</p>
+                    <div class="bible-icon">
+                        <i class="fas fa-comments"></i>
                     </div>
-                    <h3>Call Us</h3>
-                    <p>Speak directly with Dru-Lee to book your appointment</p>
-                    <p><strong>+27 83 262 2790</strong></p>
-                    <a href="tel:+27832622790" class="btn">Call Now</a>
                 </div>
                 
-                <div class="booking-option">
-                    <div class="booking-icon">
-                        <i class="fab fa-whatsapp"></i>
+                <div class="testimonial-carousel">
+                    <div class="testimonial-slides">
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-content">
+                                    Dru-Lee doesn't just cut hair - he ministers to the soul. I always leave feeling spiritually refreshed as well as looking my best.
+                                </div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James M">
+                                    <div>
+                                        <h4>James M.</h4>
+                                        <p>Regular Client</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-content">
+                                    The attention to detail is incredible! My son was nervous for his first haircut, but Dru-Lee made him feel so comfortable with stories and patience.
+                                </div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah K">
+                                    <div>
+                                        <h4>Sarah K.</h4>
+                                        <p>Mother of Client</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-content">
+                                    As a busy executive, I appreciate the private appointment times. The spiritual counsel I receive during my haircut often gives me perspective for the week ahead.
+                                </div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="David T">
+                                    <div>
+                                        <h4>David T.</h4>
+                                        <p>Executive Client</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <h3>WhatsApp</h3>
-                    <p>Message us on WhatsApp for quick booking</p>
-                    <a href="https://api.whatsapp.com/send?phone=%2B27832622790" class="btn btn-outline">Chat on WhatsApp</a>
-                </div>
-                
-                <div class="booking-option">
-                    <div class="booking-icon">
-                        <i class="fas fa-envelope"></i>
+                    <div class="carousel-nav">
+                        <div class="carousel-dot active" data-index="0"></div>
+                        <div class="carousel-dot" data-index="1"></div>
+                        <div class="carousel-dot" data-index="2"></div>
                     </div>
-                    <h3>Email</h3>
-                    <p>Send us an email with your preferred date and time</p>
-                    <a href="mailto:dru-lee.thomas@outlook.com" class="btn btn-outline">Send Email</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Booking Section -->
+        <section id="booking" class="booking">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Book Your Appointment</h2>
+                    <p>Experience the Masters Touch difference</p>
+                    <div class="bible-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                </div>
+                
+                <div class="booking-container">
+                    <div class="booking-calendar">
+                        <h3>Select Date & Time</h3>
+                        <div class="calendar-header">
+                            <button id="prev-month" aria-label="Previous month"><i class="fas fa-chevron-left"></i></button>
+                            <h4 id="current-month">July 2025</h4>
+                            <button id="next-month" aria-label="Next month"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="calendar-weekdays">
+                            <div>Sun</div>
+                            <div>Mon</div>
+                            <div>Tue</div>
+                            <div>Wed</div>
+                            <div>Thu</div>
+                            <div>Fri</div>
+                            <div>Sat</div>
+                        </div>
+                        <div class="calendar-days" id="calendar-days">
+                            <!-- Calendar days will be generated by JavaScript -->
+                        </div>
+                        
+                        <div class="time-slots">
+                            <h4>Available Times</h4>
+                            <div class="slot-container">
+                                <button class="time-slot">9:00 AM</button>
+                                <button class="time-slot">10:00 AM</button>
+                                <button class="time-slot">11:00 AM</button>
+                                <button class="time-slot">1:00 PM</button>
+                                <button class="time-slot">2:00 PM</button>
+                                <button class="time-slot">3:00 PM</button>
+                                <button class="time-slot">4:00 PM</button>
+                                <button class="time-slot">5:00 PM</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="booking-form">
+                        <h3>Your Information</h3>
+                        <form id="appointment-form">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" required aria-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" required aria-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Select Service</label>
+                                <select id="service" required aria-required="true">
+                                    <option value="">Choose a service</option>
+                                    <option value="mens">Men's Haircut (R65)</option>
+                                    <option value="teen">Teenage Haircut (R55)</option>
+                                    <option value="boys">Boys Haircut (R50)</option>
+                                    <option value="beard">Beard Trim & Shape-Up (R45)</option>
+                                    <option value="deluxe">Deluxe Grooming Package (R120)</option>
+                                    <option value="executive">Executive Service (R150)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="notes">Special Requests</label>
+                                <textarea id="notes" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn">Confirm Booking</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer id="contact">
@@ -988,9 +1391,9 @@
                     <h3>Masters Touch Barbers</h3>
                     <p>Precision cuts and spiritual care for gentlemen of all ages. Experience the difference of a barber's touch guided by faith.</p>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/people/Dru-lee-Thomas/61555440681181/"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/dru_lee_thomas/?hl=en"><i class="fab fa-instagram"></i></a>
-                        <a href="https://api.whatsapp.com/send?phone=%2B27832622790"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/people/Dru-lee-Thomas/61555440681181/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/dru_lee_thomas/?hl=en" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://api.whatsapp.com/send?phone=%2B27832622790" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -1016,14 +1419,64 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const closeMenu = document.getElementById('close-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.add('active');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+            menuToggle.focus();
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Close menu with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+                menuToggle.focus();
+            }
+        });
+        
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 
@@ -1043,6 +1496,166 @@
             element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             observer.observe(element);
         });
+
+        // Testimonial Carousel
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        let currentSlide = 0;
+        
+        function showSlide(index) {
+            // Hide all slides
+            slides.forEach(slide => {
+                slide.style.display = 'none';
+            });
+            
+            // Remove active class from all dots
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+            
+            // Show current slide and activate dot
+            slides[index].style.display = 'block';
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+        
+        // Initialize carousel
+        showSlide(0);
+        
+        // Add click events to dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+        
+        // Auto rotate testimonials
+        setInterval(() => {
+            let nextSlide = currentSlide + 1;
+            if (nextSlide >= slides.length) nextSlide = 0;
+            showSlide(nextSlide);
+        }, 5000);
+        
+        // Calendar Functionality
+        const calendarDays = document.getElementById('calendar-days');
+        const currentMonthEl = document.getElementById('current-month');
+        const prevMonthBtn = document.getElementById('prev-month');
+        const nextMonthBtn = document.getElementById('next-month');
+        const timeSlots = document.querySelectorAll('.time-slot');
+        let currentDate = new Date();
+        let selectedDate = null;
+        
+        function renderCalendar() {
+            // Get first day of month and days in month
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+            
+            currentMonthEl.textContent = 
+                new Date(year, month).toLocaleDateString('en-US', { 
+                    month: 'long', 
+                    year: 'numeric' 
+                });
+            
+            // Clear previous calendar
+            calendarDays.innerHTML = '';
+            
+            // Create empty slots for days before first day
+            const firstDay = new Date(year, month, 1).getDay();
+            for(let i = 0; i < firstDay; i++) {
+                const emptyDay = document.createElement('div');
+                emptyDay.classList.add('calendar-day', 'empty');
+                emptyDay.innerHTML = '&nbsp;';
+                calendarDays.appendChild(emptyDay);
+            }
+            
+            // Create days
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            for(let i = 1; i <= daysInMonth; i++) {
+                const day = document.createElement('div');
+                day.classList.add('calendar-day');
+                day.textContent = i;
+                day.addEventListener('click', () => {
+                    // Remove previous selection
+                    document.querySelectorAll('.calendar-day').forEach(d => {
+                        d.classList.remove('selected');
+                    });
+                    
+                    // Select this date
+                    day.classList.add('selected');
+                    selectedDate = new Date(year, month, i);
+                    
+                    // Enable time slots
+                    timeSlots.forEach(slot => {
+                        slot.disabled = false;
+                    });
+                });
+                calendarDays.appendChild(day);
+            }
+        }
+        
+        prevMonthBtn.addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        });
+        
+        nextMonthBtn.addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        });
+        
+        // Time slot selection
+        timeSlots.forEach(slot => {
+            slot.addEventListener('click', function() {
+                // Remove previous selection
+                timeSlots.forEach(s => {
+                    s.classList.remove('selected');
+                });
+                
+                // Select this time slot
+                this.classList.add('selected');
+            });
+        });
+        
+        // Form submission
+        document.getElementById('appointment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const service = document.getElementById('service').value;
+            
+            // Check if date and time are selected
+            if (!selectedDate) {
+                alert('Please select a date');
+                return;
+            }
+            
+            const selectedTimeSlot = document.querySelector('.time-slot.selected');
+            if (!selectedTimeSlot) {
+                alert('Please select a time slot');
+                return;
+            }
+            
+            // Format date for display
+            const formattedDate = selectedDate.toLocaleDateString('en-US', {
+                weekday: 'long',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            // Show confirmation
+            alert(`Thank you, ${name}!\nYour ${service} appointment is confirmed for ${formattedDate} at ${selectedTimeSlot.textContent}.\nWe'll see you soon!`);
+            
+            // Reset form
+            this.reset();
+            document.querySelectorAll('.calendar-day.selected, .time-slot.selected').forEach(el => {
+                el.classList.remove('selected');
+            });
+            selectedDate = null;
+        });
+        
+        // Initialize calendar
+        renderCalendar();
     </script>
 </body>
 </html>
