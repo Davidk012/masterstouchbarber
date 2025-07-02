@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hours & Location - Masters Touch Barbers</title>
+    <meta name="description" content="Discover our operating hours and Johannesburg location. Masters Touch Barbers offers precision haircuts in a spiritual environment.">
+    <meta name="keywords" content="barber Johannesburg, haircut hours, barbershop location, men's grooming">
+    <meta property="og:title" content="Hours & Location - Masters Touch Barbers">
+    <meta property="og:description" content="Find our operating hours and Johannesburg location. Walk-ins welcome!">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://yourdomain.com/hours.html">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -23,6 +29,8 @@
             --text-light: #f5f5f5;
             --text-dark: #333;
             --scripture-gold: #d4af37;
+            --open-status: #2ecc71;
+            --closed-status: #e74c3c;
         }
 
         body {
@@ -126,7 +134,7 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(44, 30, 22, 0.85), rgba(44, 30, 22, 0.85)), 
-                        url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+                        url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             height: 60vh;
@@ -162,13 +170,45 @@
             font-size: 1.2rem;
             margin: 1.5rem 0;
             color: var(--scripture-gold);
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
         }
 
         .scripture-ref {
             display: block;
             margin-top: 0.5rem;
             font-size: 1rem;
+        }
+
+        .current-status {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px 25px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(201, 167, 105, 0.5);
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .open {
+            background-color: var(--open-status);
+            box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+        }
+
+        .closed {
+            background-color: var(--closed-status);
+            box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
         }
 
         .btn {
@@ -357,6 +397,7 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             height: 400px;
+            position: relative;
         }
 
         .map-container iframe {
@@ -365,10 +406,40 @@
             border: none;
         }
 
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: 10;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .map-overlay:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .map-overlay-content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
         /* Transportation Section */
         .transport-section {
             background: linear-gradient(rgba(44, 30, 22, 0.85), rgba(44, 30, 22, 0.85)), 
-                        url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+                        url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             color: var(--text-light);
@@ -400,6 +471,83 @@
             font-size: 3rem;
             color: var(--accent-gold);
             margin-bottom: 1.5rem;
+        }
+
+        /* Feedback Section */
+        .feedback-section {
+            background: var(--text-light);
+            padding: 4rem 0;
+        }
+
+        .feedback-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid var(--accent-gold);
+        }
+
+        .feedback-container h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .feedback-form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--accent-gold);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(201, 167, 105, 0.2);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            border: none;
+            padding: 14px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: #d4b87b;
         }
 
         /* Footer */
@@ -478,6 +626,16 @@
         }
 
         /* Responsive */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -493,6 +651,10 @@
                 margin: 0 0.8rem;
             }
 
+            .hero {
+                height: 55vh;
+            }
+
             .hero h2 {
                 font-size: 2.5rem;
             }
@@ -500,27 +662,81 @@
             .hero p {
                 font-size: 1.1rem;
             }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hours-card, .location-info {
+                padding: 2rem 1.5rem;
+            }
         }
 
-        @media (max-width: 480px) {
-            nav ul {
-                flex-direction: column;
-            }
-
-            nav li {
-                margin: 0.5rem 0;
-            }
-
+        @media (max-width: 576px) {
             .hero {
                 height: 50vh;
             }
-
+            
             .hero h2 {
                 font-size: 2rem;
             }
             
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0.8rem;
+            }
+            
             .hours-table td {
                 font-size: 1rem;
+                padding: 12px 0;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .scripture-verse {
+                font-size: 1.1rem;
+            }
+            
+            .section {
+                padding: 3.5rem 0;
+            }
+            
+            .current-status {
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .location-container, .hours-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo h1 {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -544,233 +760,283 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="bible-icon">
-                <i class="fas fa-clock"></i>
-            </div>
-            <h2>Our Hours & Location</h2>
-            <p>Find us in the heart of Johannesburg</p>
-            
-            <div class="scripture-verse">
-                "There is a time for everything, and a season for every activity under the heavens"
-                <span class="scripture-ref">Ecclesiastes 3:1</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Hours Section -->
-    <section id="hours" class="hours-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Operating Hours</h2>
-                <p>Plan your visit to our sanctuary</p>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
                 <div class="bible-icon">
-                    <i class="fas fa-calendar-alt"></i>
+                    <i class="fas fa-clock"></i>
                 </div>
-            </div>
-            
-            <div class="hours-container">
-                <div class="hours-card">
-                    <h3>Our Regular Hours</h3>
-                    <table class="hours-table">
-                        <tr>
-                            <td>Monday - Tuesday</td>
-                            <td class="closed">Closed</td>
-                        </tr>
-                        <tr>
-                            <td>Wednesday - Thursday</td>
-                            <td>9:00 AM - 5:00 PM</td>
-                        </tr>
-                        <tr>
-                            <td>Friday</td>
-                            <td>9:00 AM - 6:00 PM</td>
-                        </tr>
-                        <tr>
-                            <td>Saturday</td>
-                            <td>8:00 AM - 8:00 PM</td>
-                        </tr>
-                        <tr>
-                            <td>Sunday</td>
-                            <td>3:00 PM - 8:00 PM</td>
-                        </tr>
-                    </table>
-                    
-                    <div class="special-notes">
-                        <p><i class="fas fa-star"></i> Walk-ins are always welcome</p>
-                        <p><i class="fas fa-star"></i> Appointments recommended on weekends</p>
-                        <p><i class="fas fa-star"></i> Extended hours available by request</p>
-                    </div>
-                    
-                    <p class="scriptural" style="margin-top: 1.5rem;">"Six days you shall labor, but on the seventh day you shall rest"</p>
-                    <span class="scripture-ref">Exodus 34:21</span>
+                <h2>Our Hours & Location</h2>
+                <p>Find us in the heart of Johannesburg</p>
+                
+                <div class="scripture-verse">
+                    "There is a time for everything, and a season for every activity under the heavens"
+                    <span class="scripture-ref">Ecclesiastes 3:1</span>
                 </div>
                 
-                <div class="hours-card">
-                    <h3>Holiday Schedule</h3>
-                    <table class="hours-table">
-                        <tr>
-                            <td>New Year's Day</td>
-                            <td class="closed">Closed</td>
-                        </tr>
-                        <tr>
-                            <td>Good Friday</td>
-                            <td>10:00 AM - 3:00 PM</td>
-                        </tr>
-                        <tr>
-                            <td>Easter Sunday</td>
-                            <td class="closed">Closed</td>
-                        </tr>
-                        <tr>
-                            <td>Freedom Day (April 27)</td>
-                            <td>10:00 AM - 4:00 PM</td>
-                        </tr>
-                        <tr>
-                            <td>Workers' Day (May 1)</td>
-                            <td class="closed">Closed</td>
-                        </tr>
-                        <tr>
-                            <td>Christmas Day</td>
-                            <td class="closed">Closed</td>
-                        </tr>
-                        <tr>
-                            <td>Day of Goodwill</td>
-                            <td>10:00 AM - 4:00 PM</td>
-                        </tr>
-                    </table>
-                    
-                    <div class="special-notes">
-                        <p><i class="fas fa-info-circle"></i> Special hours may apply during holidays. Please call ahead to confirm.</p>
-                    </div>
+                <div id="status-display" class="current-status">
+                    <span class="status-indicator"></span>
+                    <span id="status-text">Checking current status...</span>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Location Section -->
-    <section id="location" class="location-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Location</h2>
-                <p>Visit us in Johannesburg</p>
-                <div class="bible-icon">
-                    <i class="fas fa-map-marker-alt"></i>
-                </div>
-            </div>
-            
-            <div class="location-container">
-                <div class="location-info">
-                    <h3>Find Our Sanctuary</h3>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h4>Address</h4>
-                            <p>73 Dowling Avenue, Johannesburg, Gauteng</p>
-                        </div>
+        <!-- Hours Section -->
+        <section id="hours" class="hours-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Operating Hours</h2>
+                    <p>Plan your visit to our sanctuary</p>
+                    <div class="bible-icon">
+                        <i class="fas fa-calendar-alt"></i>
                     </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>+27 83 262 2790</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h4>Email</h4>
-                            <p>dru-lee.thomas@outlook.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-parking"></i>
-                        </div>
-                        <div>
-                            <h4>Parking</h4>
-                            <p>Free street parking available<br>Designated parking behind building</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-wheelchair"></i>
-                        </div>
-                        <div>
-                            <h4>Accessibility</h4>
-                            <p>Wheelchair accessible entrance<br>ADA compliant facilities</p>
-                        </div>
-                    </div>
-                    
-                    <a href="contact.html" class="btn" style="margin-top: 1.5rem; display: block; text-align: center;">
-                        Get Directions
-                    </a>
                 </div>
                 
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.092566368789!2d27.967334!3d-26.182575!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950a4d71f6c541%3A0xfc51ef09b268c729!2s73%20Dowling%20Ave%2C%20Westbury%2C%20Johannesburg%2C%202093!5e0!3m2!1sen!2sza!4v1718020312340!5m2!1sen!2sza" allowfullscreen></iframe>
+                <div class="hours-container">
+                    <div class="hours-card">
+                        <h3>Our Regular Hours</h3>
+                        <table class="hours-table">
+                            <tr>
+                                <td>Monday - Tuesday</td>
+                                <td class="closed">Closed</td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday - Thursday</td>
+                                <td>9:00 AM - 5:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Friday</td>
+                                <td>9:00 AM - 6:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Saturday</td>
+                                <td>8:00 AM - 8:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Sunday</td>
+                                <td>3:00 PM - 8:00 PM</td>
+                            </tr>
+                        </table>
+                        
+                        <div class="special-notes">
+                            <p><i class="fas fa-star"></i> Walk-ins are always welcome</p>
+                            <p><i class="fas fa-star"></i> Appointments recommended on weekends</p>
+                            <p><i class="fas fa-star"></i> Extended hours available by request</p>
+                        </div>
+                        
+                        <p class="scriptural" style="margin-top: 1.5rem;">"Six days you shall labor, but on the seventh day you shall rest"</p>
+                        <span class="scripture-ref">Exodus 34:21</span>
+                    </div>
+                    
+                    <div class="hours-card">
+                        <h3>Holiday Schedule</h3>
+                        <table class="hours-table">
+                            <tr>
+                                <td>New Year's Day</td>
+                                <td class="closed">Closed</td>
+                            </tr>
+                            <tr>
+                                <td>Good Friday</td>
+                                <td>10:00 AM - 3:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Easter Sunday</td>
+                                <td class="closed">Closed</td>
+                            </tr>
+                            <tr>
+                                <td>Freedom Day (April 27)</td>
+                                <td>10:00 AM - 4:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Workers' Day (May 1)</td>
+                                <td class="closed">Closed</td>
+                            </tr>
+                            <tr>
+                                <td>Christmas Day</td>
+                                <td class="closed">Closed</td>
+                            </tr>
+                            <tr>
+                                <td>Day of Goodwill</td>
+                                <td>10:00 AM - 4:00 PM</td>
+                            </tr>
+                        </table>
+                        
+                        <div class="special-notes">
+                            <p><i class="fas fa-info-circle"></i> Special hours may apply during holidays. Please call ahead to confirm.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Transportation Section -->
-    <section class="transport-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Getting Here</h2>
-                <p>Convenient transportation options</p>
-                <div class="bible-icon">
-                    <i class="fas fa-bus"></i>
+        <!-- Location Section -->
+        <section id="location" class="location-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Location</h2>
+                    <p>Visit us in Johannesburg</p>
+                    <div class="bible-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                </div>
+                
+                <div class="location-container">
+                    <div class="location-info">
+                        <h3>Find Our Sanctuary</h3>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Address</h4>
+                                <p>73 Dowling Avenue, Johannesburg, Gauteng</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+27 83 262 2790</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>dru-lee.thomas@outlook.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-parking"></i>
+                            </div>
+                            <div>
+                                <h4>Parking</h4>
+                                <p>Free street parking available<br>Designated parking behind building</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-wheelchair"></i>
+                            </div>
+                            <div>
+                                <h4>Accessibility</h4>
+                                <p>Wheelchair accessible entrance<br>ADA compliant facilities</p>
+                            </div>
+                        </div>
+                        
+                        <a href="contact.html" class="btn" style="margin-top: 1.5rem; display: block; text-align: center;">
+                            Get Directions
+                        </a>
+                    </div>
+                    
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.092566368789!2d27.967334!3d-26.182575!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950a4d71f6c541%3A0xfc51ef09b268c729!2s73%20Dowling%20Ave%2C%20Westbury%2C%20Johannesburg%2C%202093!5e0!3m2!1sen!2sza!4v1718020312340!5m2!1sen!2sza" allowfullscreen></iframe>
+                        <div class="map-overlay" id="map-overlay">
+                            <div class="map-overlay-content">
+                                <i class="fas fa-expand-alt"></i> Click to view larger map
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="transport-options">
-                <div class="transport-card">
-                    <div class="transport-icon">
+        </section>
+
+        <!-- Transportation Section -->
+        <section class="transport-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Getting Here</h2>
+                    <p>Convenient transportation options</p>
+                    <div class="bible-icon">
                         <i class="fas fa-bus"></i>
                     </div>
-                    <h3>Public Bus</h3>
-                    <p>Routes 12, 45, and 78 stop within 2 blocks of our location. Johannesburg Bus Service runs every 20 minutes.</p>
                 </div>
                 
-                <div class="transport-card">
-                    <div class="transport-icon">
-                        <i class="fas fa-train"></i>
+                <div class="transport-options">
+                    <div class="transport-card">
+                        <div class="transport-icon">
+                            <i class="fas fa-bus"></i>
+                        </div>
+                        <h3>Public Bus</h3>
+                        <p>Routes 12, 45, and 78 stop within 2 blocks of our location. Johannesburg Bus Service runs every 20 minutes.</p>
                     </div>
-                    <h3>Train</h3>
-                    <p>Westbury Station is a 10-minute walk away. Gautrain services connect to all major areas of Johannesburg.</p>
-                </div>
-                
-                <div class="transport-card">
-                    <div class="transport-icon">
-                        <i class="fas fa-car"></i>
+                    
+                    <div class="transport-card">
+                        <div class="transport-icon">
+                            <i class="fas fa-train"></i>
+                        </div>
+                        <h3>Train</h3>
+                        <p>Westbury Station is a 10-minute walk away. Gautrain services connect to all major areas of Johannesburg.</p>
                     </div>
-                    <h3>Driving</h3>
-                    <p>Easy access from N1 and M1 highways. Free parking available behind our building and on the street.</p>
-                </div>
-                
-                <div class="transport-card">
-                    <div class="transport-icon">
-                        <i class="fas fa-taxi"></i>
+                    
+                    <div class="transport-card">
+                        <div class="transport-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3>Driving</h3>
+                        <p>Easy access from N1 and M1 highways. Free parking available behind our building and on the street.</p>
                     </div>
-                    <h3>Ride Share</h3>
-                    <p>Uber and Bolt services are readily available throughout Johannesburg. Use our address for drop-off.</p>
+                    
+                    <div class="transport-card">
+                        <div class="transport-icon">
+                            <i class="fas fa-taxi"></i>
+                        </div>
+                        <h3>Ride Share</h3>
+                        <p>Uber and Bolt services are readily available throughout Johannesburg. Use our address for drop-off.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        
+        <!-- Feedback Section -->
+        <section class="feedback-section">
+            <div class="container">
+                <div class="feedback-container">
+                    <h3>Share Your Experience</h3>
+                    <form class="feedback-form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="visit-date">Date of Visit</label>
+                            <input type="date" id="visit-date">
+                        </div>
+                        <div class="form-group">
+                            <label for="feedback-type">Feedback Type</label>
+                            <select id="feedback-type">
+                                <option value="">Select feedback type</option>
+                                <option value="compliment">Compliment</option>
+                                <option value="suggestion">Suggestion</option>
+                                <option value="concern">Concern</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Feedback</label>
+                            <textarea id="message" placeholder="Share your experience with us..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Submit Feedback</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer id="contact">
@@ -819,12 +1085,16 @@
             });
         });
 
-        // Current day highlighting
+        // Current day and open status
         document.addEventListener('DOMContentLoaded', function() {
             const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
             const today = new Date().getDay();
             const todayName = days[today];
+            const now = new Date();
+            const currentHour = now.getHours();
+            const currentMinutes = now.getMinutes();
             
+            // Highlight current day in hours table
             const tableRows = document.querySelectorAll('.hours-table tr');
             tableRows.forEach(row => {
                 if (row.textContent.includes(todayName)) {
@@ -834,6 +1104,67 @@
                     if (cell) {
                         cell.innerHTML = `<i class="fas fa-calendar-day" style="color: var(--accent-gold); margin-right: 8px;"></i>${cell.textContent}`;
                     }
+                }
+            });
+            
+            // Determine if shop is open
+            let isOpen = false;
+            let statusText = "";
+            const statusDisplay = document.getElementById('status-text');
+            const statusIndicator = document.querySelector('.status-indicator');
+            
+            switch(today) {
+                case 0: // Sunday
+                    isOpen = (currentHour >= 15 && currentHour < 20);
+                    statusText = isOpen ? "We're currently open!" : "We're currently closed";
+                    break;
+                case 1: // Monday
+                case 2: // Tuesday
+                    isOpen = false;
+                    statusText = "We're currently closed";
+                    break;
+                case 3: // Wednesday
+                case 4: // Thursday
+                    isOpen = (currentHour >= 9 && currentHour < 17);
+                    statusText = isOpen ? "We're currently open!" : "We're currently closed";
+                    break;
+                case 5: // Friday
+                    isOpen = (currentHour >= 9 && currentHour < 18);
+                    statusText = isOpen ? "We're currently open!" : "We're currently closed";
+                    break;
+                case 6: // Saturday
+                    isOpen = (currentHour >= 8 && currentHour < 20);
+                    statusText = isOpen ? "We're currently open!" : "We're currently closed";
+                    break;
+            }
+            
+            // Update status display
+            statusDisplay.textContent = statusText;
+            statusIndicator.classList.add(isOpen ? 'open' : 'closed');
+            
+            // Map overlay functionality
+            const mapOverlay = document.getElementById('map-overlay');
+            const mapIframe = document.querySelector('.map-container iframe');
+            
+            mapOverlay.addEventListener('click', function() {
+                const mapUrl = mapIframe.src.replace('!1m18', '!1m8');
+                window.open(mapUrl, '_blank');
+            });
+            
+            // Feedback form submission
+            const feedbackForm = document.querySelector('.feedback-form');
+            feedbackForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simple validation
+                const name = document.getElementById('name').value;
+                const message = document.getElementById('message').value;
+                
+                if (name && message) {
+                    alert('Thank you for your feedback! We appreciate your input.');
+                    feedbackForm.reset();
+                } else {
+                    alert('Please fill in all required fields.');
                 }
             });
         });
