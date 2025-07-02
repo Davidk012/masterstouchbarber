@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Masters Touch Barbers - Where Skill Meets Spirit</title>
+    <meta name="description" content="Experience premium haircuts with spiritual purpose at Masters Touch Barbers in Johannesburg. Book your appointment today.">
+    <meta property="og:title" content="Masters Touch Barbers - Where Skill Meets Spirit">
+    <meta property="og:description" content="Experience the art of barbering with Dru-Lee Thomas at Masters Touch Barbers in Johannesburg.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://masterstouchbarbers.com">
+    <meta property="og:image" content="https://masterstouchbarbers.com/images/og-image.jpg">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✂️</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -104,8 +111,10 @@
             padding: 5px 0;
         }
 
-        nav a:hover {
+        nav a:hover,
+        nav a:focus {
             color: var(--accent-gold);
+            outline: none;
         }
 
         nav a::after {
@@ -119,7 +128,8 @@
             transition: width 0.3s;
         }
 
-        nav a:hover::after {
+        nav a:hover::after,
+        nav a:focus::after {
             width: 100%;
         }
 
@@ -129,6 +139,10 @@
             flex-direction: column;
             cursor: pointer;
             z-index: 1100;
+            background: none;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
         }
 
         .menu-toggle span {
@@ -139,12 +153,10 @@
             border-radius: 2px;
             transition: all 0.3s ease;
         }
-        .mobile-menu ul {
-            display: flex;
-            gap: 15px; /* Adjust spacing as needed */
-            list-style: none;
-            padding: 0;
-            margin: 0;
+
+        .menu-toggle:focus {
+            outline: 2px solid var(--accent-gold);
+            outline-offset: 2px;
         }
 
         /* Hero Section */
@@ -225,14 +237,17 @@
             transition: 0.5s;
         }
 
-        .btn:hover:before {
+        .btn:hover:before,
+        .btn:focus:before {
             left: 100%;
         }
 
-        .btn:hover {
+        .btn:hover,
+        .btn:focus {
             background: #d4b87b;
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            outline: none;
         }
 
         .btn-outline {
@@ -241,7 +256,8 @@
             color: var(--accent-gold);
         }
 
-        .btn-outline:hover {
+        .btn-outline:hover,
+        .btn-outline:focus {
             background: var(--accent-gold);
             color: var(--primary-dark);
         }
@@ -313,17 +329,6 @@
             background: var(--primary-light);
             position: relative;
             overflow: hidden;
-        }
-
-        .services:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100"><path d="M20,20 Q40,5 60,20 T100,20 Q85,40 100,60 T100,100 Q80,85 60,100 T20,100 Q5,80 20,60 T20,20" fill="none" stroke="%235d4037" stroke-width="0.3" opacity="0.1"/></svg>');
-            z-index: 0;
         }
 
         .services-grid {
@@ -485,8 +490,10 @@
             transition: color 0.3s;
         }
 
-        .footer-column a:hover {
+        .footer-column a:hover,
+        .footer-column a:focus {
             color: var(--accent-gold);
+            outline: none;
         }
 
         .social-icons {
@@ -506,9 +513,11 @@
             transition: all 0.3s;
         }
 
-        .social-icons a:hover {
+        .social-icons a:hover,
+        .social-icons a:focus {
             background: var(--accent-gold);
             transform: translateY(-3px);
+            outline: none;
         }
 
         .copyright {
@@ -568,6 +577,11 @@
                 margin: 1.5rem 0;
             }
             
+            nav a {
+                padding: 12px 24px;
+                font-size: 1.2rem;
+            }
+            
             .close-btn {
                 position: absolute;
                 top: 25px;
@@ -575,6 +589,14 @@
                 color: var(--accent-gold);
                 font-size: 1.8rem;
                 cursor: pointer;
+                padding: 10px;
+                background: none;
+                border: none;
+            }
+            
+            .close-btn:focus {
+                outline: 2px solid var(--accent-gold);
+                outline-offset: 2px;
             }
             
             .hero {
@@ -618,6 +640,7 @@
                 width: 80%;
                 max-width: 300px;
                 margin: 8px 0;
+                padding: 16px;
             }
         }
 
@@ -702,10 +725,39 @@
             .section-title::after {
                 width: 60px;
             }
+            
+            nav li {
+                margin: 1.2rem 0;
+            }
+            
+            nav a {
+                padding: 12px 20px;
+            }
+        }
+
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 8px;
+            z-index: 10000;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+            outline: 2px solid var(--accent-gold);
+            outline-offset: 2px;
         }
     </style>
 </head>
 <body>
+    <!-- Skip link for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Header -->
     <header>
         <div class="container header-container">
@@ -713,19 +765,15 @@
                 <h1>Masters <span>Touch</span> Barbers</h1>
             </div>
             
-            <nav class="mobile-menu" id="mobile-menu">
-                <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="service.html">Services</a></li>
-                    <li><a href="hours.html">Hours</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             
             <nav>
                 <ul id="nav-menu">
-                    <li class="close-btn" id="close-menu"><i class="fas fa-times"></i></li>
+                    <li><button class="close-btn" id="close-menu" aria-label="Close menu"><i class="fas fa-times"></i></button></li>
                     <li><a href="home.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="service.html">Services</a></li>
@@ -736,191 +784,192 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="bible-icon">
-                <i class="fas fa-bible"></i>
-            </div>
-            <h2>Where Skill Meets Spirit</h2>
-            <p>Experience the art of barbering with Dru-Lee Thomas at Masters Touch Barbers</p>
-            
-            <div class="scripture-verse">
-                "Whatever you do, work at it with all your heart, as working for the Lord"
-                <span class="scripture-ref">Colossians 3:23</span>
-            </div>
-            
-            <div class="hero-buttons">
-                <a href="service.html" class="btn">View Services</a>
-                <a href="contact.html" class="btn btn-outline">Book Appointment</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>Meet Your Master Barber</h2>
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
                 <div class="bible-icon">
-                    <i class="fas fa-hands-praying"></i>
+                    <i class="fas fa-bible"></i>
+                </div>
+                <h2>Where Skill Meets Spirit</h2>
+                <p>Experience the art of barbering with Dru-Lee Thomas at Masters Touch Barbers</p>
+                
+                <div class="scripture-verse">
+                    "Whatever you do, work at it with all your heart, as working for the Lord"
+                    <span class="scripture-ref">Colossians 3:23</span>
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="service.html" class="btn">View Services</a>
+                    <a href="contact.html" class="btn btn-outline">Book Appointment</a>
                 </div>
             </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Dru-Lee Thomas</h3>
-                    <p>With over 4 years of experience in the art of barbering, Dru-Lee Thomas brings exceptional skill and passion to every haircut. Guided by his faith, Dru-Lee sees his work as a ministry of service, treating each client with the care and respect they deserve as creations of God.</p>
-                    <p>"The Lord does not look at the things people look at. People look at the outward appearance, but the Lord looks at the heart." <span class="scriptural">1 Samuel 16:7</span>. At Masters Touch, we strive to enhance your outward appearance while recognizing the inherent worth within every person.</p>
-                    <p>Located in the heart of Johannesburg, Masters Touch Barbers combines traditional techniques with modern styles to create the perfect look for every gentleman. Our shop is designed as a sanctuary where clients can find respite from the world while receiving exceptional grooming services.</p>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Meet Your Master Barber</h2>
+                    <div class="bible-icon">
+                        <i class="fas fa-hands-praying"></i>
+                    </div>
                 </div>
-                <div class="about-image">
-                    <img src="IMG_5224.jpg" alt="Dru-Lee Thomas - Master Barber">
-                    <div style="background-color: #d7ccc8; height: -10px; display: flex; align-items: center; justify-content: center;">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Dru-Lee Thomas</h3>
+                        <p>With over 4 years of experience in the art of barbering, Dru-Lee Thomas brings exceptional skill and passion to every haircut. Guided by his faith, Dru-Lee sees his work as a ministry of service, treating each client with the care and respect they deserve as creations of God.</p>
+                        <p>"The Lord does not look at the things people look at. People look at the outward appearance, but the Lord looks at the heart." <span class="scriptural">1 Samuel 16:7</span>. At Masters Touch, we strive to enhance your outward appearance while recognizing the inherent worth within every person.</p>
+                        <p>Located in the heart of Johannesburg, Masters Touch Barbers combines traditional techniques with modern styles to create the perfect look for every gentleman. Our shop is designed as a sanctuary where clients can find respite from the world while receiving exceptional grooming services.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="IMG_5224.jpg" alt="Dru-Lee Thomas - Master Barber" loading="lazy">
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Services</h2>
-                <p>Premium haircuts with spiritual purpose</p>
-                <div class="bible-icon">
-                    <i class="fas fa-cut"></i>
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Services</h2>
+                    <p>Premium haircuts with spiritual purpose</p>
+                    <div class="bible-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
                 </div>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <i class="fas fa-cut"></i>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-cut"></i>
+                            </div>
+                            <h3>Men's Haircut</h3>
+                            <p>A precision cut tailored to your style and preferences, performed with excellence as unto the Lord.</p>
+                            <div class="service-price">R65</div>
+                            <p class="scriptural">"Let the favor of the Lord our God be upon us, and establish the work of our hands" <br>Psalm 90:17</p>
                         </div>
-                        <h3>Men's Haircut</h3>
-                        <p>A precision cut tailored to your style and preferences, performed with excellence as unto the Lord.</p>
-                        <div class="service-price">R65</div>
-                        <p class="scriptural">"Let the favor of the Lord our God be upon us, and establish the work of our hands" <br>Psalm 90:17</p>
                     </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <i class="fas fa-user"></i>
+                    <div class="service-card">
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h3>Teenage Haircut</h3>
+                            <p>Specialized cuts for young gentlemen learning to walk in faith and express their God-given identity.</p>
+                            <div class="service-price">R55</div>
+                            <p class="scriptural">"Don't let anyone look down on you because you are young, but set an example" <br>1 Timothy 4:12</p>
                         </div>
-                        <h3>Teenage Haircut</h3>
-                        <p>Specialized cuts for young gentlemen learning to walk in faith and express their God-given identity.</p>
-                        <div class="service-price">R55</div>
-                        <p class="scriptural">"Don't let anyone look down on you because you are young, but set an example" <br>1 Timothy 4:12</p>
                     </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <i class="fas fa-child"></i>
+                    <div class="service-card">
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-child"></i>
+                            </div>
+                            <h3>Boys Haircut</h3>
+                            <p>Fun and comfortable haircuts for boys, recognizing each child as a precious gift from God.</p>
+                            <div class="service-price">R50</div>
+                            <p class="scriptural">"Children are a heritage from the Lord, offspring a reward from him" <br>Psalm 127:3</p>
                         </div>
-                        <h3>Boys Haircut</h3>
-                        <p>Fun and comfortable haircuts for boys, recognizing each child as a precious gift from God.</p>
-                        <div class="service-price">R50</div>
-                        <p class="scriptural">"Children are a heritage from the Lord, offspring a reward from him" <br>Psalm 127:3</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Values Section -->
-    <section id="values" class="values">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Biblical Values</h2>
-                <p>Guiding principles that shape our service</p>
-                <div class="bible-icon">
-                    <i class="fas fa-church"></i>
+        <!-- Values Section -->
+        <section id="values" class="values">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Biblical Values</h2>
+                    <p>Guiding principles that shape our service</p>
+                    <div class="bible-icon">
+                        <i class="fas fa-church"></i>
+                    </div>
+                </div>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h3>Service</h3>
+                        <p>"Each of you should use whatever gift you have received to serve others" <span class="scriptural">1 Peter 4:10</span>. We see barbering as our God-given talent to serve our community.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Excellence</h3>
+                        <p>"Whatever you do, work at it with all your heart" <span class="scriptural">Colossians 3:23</span>. We pursue excellence in every haircut as an offering to God.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-people-arrows"></i>
+                        </div>
+                        <h3>Community</h3>
+                        <p>"Carry each other's burdens" <span class="scriptural">Galatians 6:2</span>. Our shop is a place of fellowship where men can share life and encourage one another.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Integrity</h3>
+                        <p>"Whoever walks in integrity walks securely" <span class="scriptural">Proverbs 10:9</span>. We conduct business with honesty and transparency.</p>
+                    </div>
                 </div>
             </div>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-hand-holding-heart"></i>
-                    </div>
-                    <h3>Service</h3>
-                    <p>"Each of you should use whatever gift you have received to serve others" <span class="scriptural">1 Peter 4:10</span>. We see barbering as our God-given talent to serve our community.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>Excellence</h3>
-                    <p>"Whatever you do, work at it with all your heart" <span class="scriptural">Colossians 3:23</span>. We pursue excellence in every haircut as an offering to God.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-people-arrows"></i>
-                    </div>
-                    <h3>Community</h3>
-                    <p>"Carry each other's burdens" <span class="scriptural">Galatians 6:2</span>. Our shop is a place of fellowship where men can share life and encourage one another.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Integrity</h3>
-                    <p>"Whoever walks in integrity walks securely" <span class="scriptural">Proverbs 10:9</span>. We conduct business with honesty and transparency.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Hours & Location -->
-    <section id="hours" class="hours-location-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Hours & Location</h2>
-                <p>Visit us at our Johannesburg location</p>
-                <div class="bible-icon">
-                    <i class="fas fa-map-marker-alt"></i>
-                </div>
-            </div>
-            <div class="hours-location">
-                <div class="hours-card">
-                    <h3>Operating Hours</h3>
-                    <table class="hours-table">
-                        <tr>
-                            <td>Monday - Tuesday</td>
-                            <td class="closed">Closed</td>
-                        </tr>
-                        <tr>
-                            <td>Wednesday - Thursday</td>
-                            <td>9:00 AM - 5:00 PM</td>
-                        </tr>
-                        <tr>
-                            <td>Friday</td>
-                            <td>9:00 AM - 6:00 PM</td>
-                        </tr>
-                        <tr>
-                            <td>Saturday</td>
-                            <td>8:00 AM - 8:00 PM</td>
-                        </tr>
-                        <tr>
-                            <td>Sunday</td>
-                            <td>3:00 PM - 8:00 PM</td>
-                        </tr>
-                    </table>
-                    <p style="margin-top: 20px; font-style: italic;">Walk-ins welcome, appointments recommended on weekends</p>
-                    <p class="scriptural" style="margin-top: 15px;">"Six days you shall labor, but on the seventh day you shall rest" <br>Exodus 34:21</p>
-                </div>
-                <div class="location-card">
-                    <h3>Our Location</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> 73 Dowling Avenue, Johannesburg, Gauteng</p>
-                    <p><i class="fas fa-phone"></i> +27 83 262 2790</p>
-                    <p><i class="fas fa-envelope"></i>dru-lee.thomas@outlook.com</p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.092566368789!2d27.967334!3d-26.182575!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950a4d71f6c541%3A0xfc51ef09b268c729!2s73%20Dowling%20Ave%2C%20Westbury%2C%20Johannesburg%2C%202093!5e0!3m2!1sen!2sza!4v1718020312340!5m2!1sen!2sza" allowfullscreen></iframe>
+        <!-- Hours & Location -->
+        <section id="hours" class="hours-location-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Hours & Location</h2>
+                    <p>Visit us at our Johannesburg location</p>
+                    <div class="bible-icon">
+                        <i class="fas fa-map-marker-alt"></i>
                     </div>
+                </div>
+                <div class="hours-location">
+                    <div class="hours-card">
+                        <h3>Operating Hours</h3>
+                        <table class="hours-table">
+                            <tr>
+                                <td>Monday - Tuesday</td>
+                                <td class="closed">Closed</td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday - Thursday</td>
+                                <td>9:00 AM - 5:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Friday</td>
+                                <td>9:00 AM - 6:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Saturday</td>
+                                <td>8:00 AM - 8:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Sunday</td>
+                                <td>3:00 PM - 8:00 PM</td>
+                            </tr>
+                        </table>
+                        <p style="margin-top: 20px; font-style: italic;">Walk-ins welcome, appointments recommended on weekends</p>
+                        <p class="scriptural" style="margin-top: 15px;">"Six days you shall labor, but on the seventh day you shall rest" <br>Exodus 34:21</p>
+                    </div>
+                    <div class="location-card">
+                        <h3>Our Location</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> 73 Dowling Avenue, Johannesburg, Gauteng</p>
+                        <p><i class="fas fa-phone"></i> +27 83 262 2790</p>
+                        <p><i class="fas fa-envelope"></i>dru-lee.thomas@outlook.com</p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.092566368789!2d27.967334!3d-26.182575!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950a4d71f6c541%3A0xfc51ef09b268c729!2s73%20Dowling%20Ave%2C%20Westbury%2C%20Johannesburg%2C%202093!5e0!3m2!1sen!2sza!4v1718020312340!5m2!1sen!2sza" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer id="contact">
@@ -930,9 +979,9 @@
                     <h3>Masters Touch Barbers</h3>
                     <p>Precision cuts and spiritual care for gentlemen of all ages. Experience the difference of a barber's touch guided by faith.</p>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/people/Dru-lee-Thomas/61555440681181/"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/dru_lee_thomas/?hl=en"><i class="fab fa-instagram"></i></a>
-                        <a href="https://api.whatsapp.com/send?phone=%2B27832622790&context=Afeza0FiWnEs0BiPH__PQksMpAdYk2n76OV2nYTeAbYC3JgqLxEoNY7ZIge3CM6zY5Q6edYeOpjDYY_7e8EsOguchKEdkfzv47BGGM73W_oObvr077f3UQSoYM2kaumqwF0lrYs6qOqzV3iWNL6A881srg&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwY2xjawK3xMxleHRuA2FlbQIxMABicmlkETE4R2t2eEk2TzRjNkg1dGxrAR7yEcjVoa-UUwlyqJnvF3ZKB_7_Dr4kFVURYdGET-vHsT0d96RLTdGoje29Uw_aem_yGN-tZmtbzHWObOGSmA8VQ"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/people/Dru-lee-Thomas/61555440681181/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/dru_lee_thomas/?hl=en" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://api.whatsapp.com/send?phone=%2B27832622790&context=Afeza0FiWnEs0BiPH__PQksMpAdYk2n76OV2nYTeAbYC3JgqLxEoNY7ZIge3CM6zY5Q6edYeOpjDYY_7e8EsOguchKEdkfzv47BGGM73W_oObvr077f3UQSoYM2kaumqwF0lrYs6qOqzV3iWNL6A881srg&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwY2xjawK3xMxleHRuA2FlbQIxMABicmlkETE4R2t2eEk2TzRjNkg1dGxrAR7yEcjVoa-UUwlyqJnvF3ZKB_7_Dr4kFVURYdGET-vHsT0d96RLTdGoje29Uw_aem_yGN-tZmtbzHWObOGSmA8VQ" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -959,22 +1008,29 @@
 
     <script>
         // Mobile menu toggle
-        const mobileMenu = document.getElementById('mobile-menu');
+        const menuToggle = document.getElementById('menu-toggle');
         const navMenu = document.getElementById('nav-menu');
         const closeMenu = document.getElementById('close-menu');
         
-        mobileMenu.addEventListener('click', () => {
+        menuToggle.addEventListener('click', () => {
             navMenu.classList.add('active');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
         });
         
         closeMenu.addEventListener('click', () => {
             navMenu.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+            menuToggle.focus();
         });
         
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (!navMenu.contains(e.target)) {
+            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
                 navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
             }
         });
         
@@ -982,7 +1038,19 @@
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
             });
+        });
+        
+        // Close menu with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+                menuToggle.focus();
+            }
         });
         
         // Smooth scrolling for navigation links
