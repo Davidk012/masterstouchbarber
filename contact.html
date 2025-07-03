@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Masters Touch Barbers</title>
+    <meta name="description" content="Contact Masters Touch Barbers in Johannesburg. Book your appointment today.">
+    <meta property="og:title" content="Contact Masters Touch Barbers - Where Skill Meets Spirit">
+    <meta property="og:description" content="Get in touch with Dru-Lee Thomas at Masters Touch Barbers in Johannesburg.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://masterstouchbarbers.com/contact">
+    <meta property="og:image" content="https://masterstouchbarbers.com/images/contact-og-image.jpg">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✂️</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -14,15 +21,17 @@
         }
 
         :root {
-            --primary-dark: #2c1e16;   /* Dark brown */
-            --primary-medium: #5d4037;  /* Medium brown */
-            --primary-light: #d7ccc8;   /* Light brown */
-            --accent-black: #1a1a1a;    /* Black */
-            --accent-gold: #c9a769;     /* Gold accent */
-            --accent-burgundy: #8B0000; /* Deep red for biblical accent */
+            --primary-dark: #2c1e16;
+            --primary-medium: #5d4037;
+            --primary-light: #d7ccc8;
+            --accent-black: #1a1a1a;
+            --accent-gold: #c9a769;
+            --accent-burgundy: #8B0000;
             --text-light: #f5f5f5;
             --text-dark: #333;
-            --scripture-gold: #d4af37;  /* Gold for scripture references */
+            --scripture-gold: #d4af37;
+            --open-status: #2ecc71;
+            --closed-status: #e74c3c;
         }
 
         body {
@@ -104,8 +113,10 @@
             padding: 5px 0;
         }
 
-        nav a:hover {
+        nav a:hover,
+        nav a:focus {
             color: var(--accent-gold);
+            outline: none;
         }
 
         nav a::after {
@@ -119,8 +130,35 @@
             transition: width 0.3s;
         }
 
-        nav a:hover::after {
+        nav a:hover::after,
+        nav a:focus::after {
             width: 100%;
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1100;
+            background: none;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .menu-toggle span {
+            height: 3px;
+            width: 25px;
+            background: var(--accent-gold);
+            margin-bottom: 5px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle:focus {
+            outline: 2px solid var(--accent-gold);
+            outline-offset: 2px;
         }
 
         /* Hero Section */
@@ -130,6 +168,7 @@
             background-size: cover;
             background-position: center;
             height: 60vh;
+            min-height: 400px;
             display: flex;
             align-items: center;
             text-align: center;
@@ -200,14 +239,17 @@
             transition: 0.5s;
         }
 
-        .btn:hover:before {
+        .btn:hover:before,
+        .btn:focus:before {
             left: 100%;
         }
 
-        .btn:hover {
+        .btn:hover,
+        .btn:focus {
             background: #d4b87b;
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            outline: none;
         }
 
         .btn-outline {
@@ -216,7 +258,8 @@
             color: var(--accent-gold);
         }
 
-        .btn-outline:hover {
+        .btn-outline:hover,
+        .btn-outline:focus {
             background: var(--accent-gold);
             color: var(--primary-dark);
         }
@@ -319,8 +362,10 @@
             transition: color 0.3s;
         }
 
-        .contact-text a:hover {
+        .contact-text a:hover,
+        .contact-text a:focus {
             color: var(--accent-gold);
+            outline: none;
         }
 
         .social-icons {
@@ -341,9 +386,11 @@
             border: 1px solid var(--accent-gold);
         }
 
-        .social-icons a:hover {
+        .social-icons a:hover,
+        .social-icons a:focus {
             background: var(--accent-gold);
             transform: translateY(-3px);
+            outline: none;
         }
 
         .contact-form {
@@ -506,8 +553,10 @@
             transition: color 0.3s;
         }
 
-        .footer-column a:hover {
+        .footer-column a:hover,
+        .footer-column a:focus {
             color: var(--accent-gold);
+            outline: none;
         }
 
         .social-icons-footer {
@@ -527,9 +576,11 @@
             transition: all 0.3s;
         }
 
-        .social-icons-footer a:hover {
+        .social-icons-footer a:hover,
+        .social-icons-footer a:focus {
             background: var(--accent-gold);
             transform: translateY(-3px);
+            outline: none;
         }
 
         .copyright {
@@ -540,67 +591,215 @@
             color: #aaa;
         }
 
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 8px;
+            z-index: 10000;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+            outline: 2px solid var(--accent-gold);
+            outline-offset: 2px;
+        }
+
         /* Responsive */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            nav ul {
-                margin-top: 1.5rem;
-                justify-content: center;
-            }
-
-            nav li {
-                margin: 0 0.8rem;
-            }
-
+        @media (max-width: 992px) {
             .hero h2 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
-
+            
             .hero p {
-                font-size: 1.1rem;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
-            .hours-location {
-                grid-template-columns: 1fr;
+                font-size: 1.2rem;
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: row;
+                text-align: center;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
             nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--primary-dark);
                 flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s ease;
+                z-index: 1000;
+                padding-top: 80px;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
             }
-
+            
+            nav ul.active {
+                right: 0;
+            }
+            
             nav li {
-                margin: 0.5rem 0;
+                margin: 1.5rem 0;
             }
-
+            
+            nav a {
+                padding: 12px 24px;
+                font-size: 1.2rem;
+            }
+            
+            .close-btn {
+                position: absolute;
+                top: 25px;
+                right: 25px;
+                color: var(--accent-gold);
+                font-size: 1.8rem;
+                cursor: pointer;
+                padding: 10px;
+                background: none;
+                border: none;
+            }
+            
+            .close-btn:focus {
+                outline: 2px solid var(--accent-gold);
+                outline-offset: 2px;
+            }
+            
             .hero {
                 height: 50vh;
             }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hours-location {
+                grid-template-columns: 1fr;
+            }
+            
+            section {
+                padding: 4rem 0;
+            }
+        }
 
+        @media (max-width: 576px) {
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero {
+                min-height: 450px;
+            }
+            
             .hero h2 {
                 font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .scripture-verse {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hours-card, .location-card {
+                padding: 1.5rem;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+            
+            .footer-content {
+                text-align: center;
+            }
+            
+            .footer-column h3:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .social-icons-footer {
+                justify-content: center;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .scripture-verse {
+                font-size: 0.9rem;
+            }
+            
+            .btn {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+            
+            .section-title::after {
+                width: 60px;
+            }
+            
+            nav li {
+                margin: 1.2rem 0;
+            }
+            
+            nav a {
+                padding: 12px 20px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Skip link for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo">
                 <h1>Masters <span>Touch</span> Barbers</h1>
             </div>
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
             <nav>
-                <ul>
+                <ul id="nav-menu">
+                    <li><button class="close-btn" id="close-menu" aria-label="Close menu"><i class="fas fa-times"></i></button></li>
                     <li><a href="home.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="service.html">Services</a></li>
@@ -611,200 +810,203 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="bible-icon">
-                <i class="fas fa-praying-hands"></i>
-            </div>
-            <h2>Get In Touch</h2>
-            <p>We'd love to hear from you. Reach out for appointments or questions</p>
-            
-            <div class="scripture-verse">
-                "Let your conversation be always full of grace, seasoned with salt"
-                <span class="scripture-ref">Colossians 4:6</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contact Us</h2>
-                <p>Reach out for appointments, questions, or feedback</p>
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
                 <div class="bible-icon">
-                    <i class="fas fa-envelope"></i>
+                    <i class="fas fa-praying-hands"></i>
+                </div>
+                <h2>Get In Touch</h2>
+                <p>We'd love to hear from you. Reach out for appointments or questions</p>
+                
+                <div class="scripture-verse">
+                    "Let your conversation be always full of grace, seasoned with salt"
+                    <span class="scripture-ref">Colossians 4:6</span>
                 </div>
             </div>
-            
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    
-                    <div class="contact-detail">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Address</h4>
-                            <p>73 Dowling Avenue, Johannesburg, Gauteng</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-detail">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Phone</h4>
-                            <p><a href="tel:+27832622790">+27 83 262 2790</a></p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-detail">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Email</h4>
-                            <p><a href="mailto:dru-lee.thomas@outlook.com">dru-lee.thomas@outlook.com</a></p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-detail">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Business Hours</h4>
-                            <p>Wed-Thu: 9AM - 5PM<br>
-                               Fri: 9AM - 6PM<br>
-                               Sat: 8AM - 8PM<br>
-                               Sun: 3PM - 8PM</p>
-                        </div>
-                    </div>
-                    
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/people/Dru-lee-Thomas/61555440681181/"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/dru_lee_thomas/?hl=en"><i class="fab fa-instagram"></i></a>
-                        <a href="https://api.whatsapp.com/send?phone=%2B27832622790&context=Afeza0FiWnEs0BiPH__PQksMpAdYk2n76OV2nYTeAbYC3JgqLxEoNY7ZIge3CM6zY5Q6edYeOpjDYY_7e8EsOguchKEdkfzv47BGGM73W_oObvr077f3UQSoYM2kaumqwF0lrYs6qOqzV3iWNL6A881srg&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwY2xjawK3xMxleHRuA2FlbQIxMABicmlkETE4R2t2eEk2TzRjNkg1dGxrAR7yEcjVoa-UUwlyqJnvF3ZKB_7_Dr4kFVURYdGET-vHsT0d96RLTdGoje29Uw_aem_yGN-tZmtbzHWObOGSmA8VQ"><i class="fab fa-whatsapp"></i></a>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contact Us</h2>
+                    <p>Reach out for appointments, questions, or feedback</p>
+                    <div class="bible-icon">
+                        <i class="fas fa-envelope"></i>
                     </div>
                 </div>
                 
-                <div class="contact-form">
-                    <h3>Send Us a Message</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Address</h4>
+                                <p>73 Dowling Avenue, Johannesburg, Gauteng</p>
+                            </div>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p><a href="tel:+27832622790">+27 83 262 2790</a></p>
+                            </div>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p><a href="mailto:dru-lee.thomas@outlook.com">dru-lee.thomas@outlook.com</a></p>
+                            </div>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="service">Service Interested In</label>
-                            <select id="service" name="service">
-                                <option value="">Select a service</option>
-                                <option value="men">Men's Haircut (R65)</option>
-                                <option value="teen">Teenage Haircut (R55)</option>
-                                <option value="boy">Boys Haircut (R50)</option>
-                                <option value="other">Other/General Inquiry</option>
-                            </select>
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Business Hours</h4>
+                                <p>Wed-Thu: 9AM - 5PM<br>
+                                   Fri: 9AM - 6PM<br>
+                                   Sat: 8AM - 8PM<br>
+                                   Sun: 3PM - 8PM</p>
+                            </div>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" name="message" required></textarea>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/people/Dru-lee-Thomas/61555440681181/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/dru_lee_thomas/?hl=en" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://api.whatsapp.com/send?phone=%2B27832622790&context=Afeza0FiWnEs0BiPH__PQksMpAdYk2n76OV2nYTeAbYC3JgqLxEoNY7ZIge3CM6zY5Q6edYeOpjDYY_7e8EsOguchKEdkfzv47BGGM73W_oObvr077f3UQSoYM2kaumqwF0lrYs6qOqzV3iWNL6A881srg&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwY2xjawK3xMxleHRuA2FlbQIxMABicmlkETE4R2t2eEk2TzRjNkg1dGxrAR7yEcjVoa-UUwlyqJnvF3ZKB_7_Dr4kFVURYdGET-vHsT0d96RLTdGoje29Uw_aem_yGN-tZmtbzHWObOGSmA8VQ" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                         </div>
-                        
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
+                    </div>
                     
-                    <div class="contact-message">
-                        <p><i class="fas fa-info-circle"></i> <strong>Prefer to book directly?</strong></p>
-                        <p>You can also book appointments by phone or WhatsApp during business hours.</p>
-                        <p class="scriptural">"In all your ways submit to Him, and He will make your paths straight." <br>Proverbs 3:6</p>
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="service">Service Interested In</label>
+                                <select id="service" name="service" required>
+                                    <option value="">Select a service</option>
+                                    <option value="men">Men's Haircut (R65)</option>
+                                    <option value="teen">Teenage Haircut (R55)</option>
+                                    <option value="boy">Boys Haircut (R50)</option>
+                                    <option value="other">Other/General Inquiry</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                        
+                        <div class="contact-message">
+                            <p><i class="fas fa-info-circle"></i> <strong>Prefer to book directly?</strong></p>
+                            <p>You can also book appointments by phone or WhatsApp during business hours.</p>
+                            <p class="scriptural">"In all your ways submit to Him, and He will make your paths straight." <br>Proverbs 3:6</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.092566368789!2d27.967334!3d-26.182575!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950a4d71f6c541%3A0xfc51ef09b268c729!2s73%20Dowling%20Ave%2C%20Westbury%2C%20Johannesburg%2C%202093!5e0!3m2!1sen!2sza!4v1718020312340!5m2!1sen!2sza" allowfullscreen title="Location Map"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hours Section -->
+        <section id="hours" class="hours-location-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Business Hours</h2>
+                    <p>Plan your visit to Masters Touch Barbers</p>
+                    <div class="bible-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                </div>
+                <div class="hours-location">
+                    <div class="hours-card">
+                        <h3>Operating Hours</h3>
+                        <table class="hours-table">
+                            <tr>
+                                <td>Monday - Tuesday</td>
+                                <td class="closed">Closed</td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday - Thursday</td>
+                                <td>9:00 AM - 5:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Friday</td>
+                                <td>9:00 AM - 6:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Saturday</td>
+                                <td>8:00 AM - 8:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Sunday</td>
+                                <td>3:00 PM - 8:00 PM</td>
+                            </tr>
+                        </table>
+                        <p style="margin-top: 20px; font-style: italic;">Appointments Only!</p>
+                        <p class="scriptural" style="margin-top: 15px;">"There is a time for everything, and a season for every activity under the heavens" <br>Ecclesiastes 3:1</p>
+                    </div>
+                    <div class="location-card">
+                        <h3>Appointment Notes</h3>
+                        <ul style="list-style: none; margin-top: 1.5rem;">
+                            <li style="padding: 10px 0; border-bottom: 1px solid #eee; display: flex; align-items: flex-start;">
+                                <i class="fas fa-check-circle" style="color: var(--accent-gold); margin-right: 10px; margin-top: 4px;"></i>
+                                <span>Please arrive 5 minutes before your appointment time</span>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid #eee; display: flex; align-items: flex-start;">
+                                <i class="fas fa-check-circle" style="color: var(--accent-gold); margin-right: 10px; margin-top: 4px;"></i>
+                                <span>Late arrivals may be asked to reschedule</span>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid #eee; display: flex; align-items: flex-start;">
+                                <i class="fas fa-check-circle" style="color: var(--accent-gold); margin-right: 10px; margin-top: 4px;"></i>
+                                <span>Cancellations require 24 hours notice</span>
+                            </li>
+                            <li style="padding: 10px 0; display: flex; align-items: flex-start;">
+                                <i class="fas fa-check-circle" style="color: var(--accent-gold); margin-right: 10px; margin-top: 4px;"></i>
+                                <span>We accept cash and major credit cards</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.092566368789!2d27.967334!3d-26.182575!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950a4d71f6c541%3A0xfc51ef09b268c729!2s73%20Dowling%20Ave%2C%20Westbury%2C%20Johannesburg%2C%202093!5e0!3m2!1sen!2sza!4v1718020312340!5m2!1sen!2sza" allowfullscreen></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- Hours Section -->
-    <section id="hours" class="hours-location-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Business Hours</h2>
-                <p>Plan your visit to Masters Touch Barbers</p>
-                <div class="bible-icon">
-                    <i class="fas fa-clock"></i>
-                </div>
-            </div>
-            <div class="hours-location">
-                <div class="hours-card">
-                    <h3>Operating Hours</h3>
-                    <table class="hours-table">
-                        <tr>
-                            <td>Monday - Tuesday</td>
-                            <td class="closed">Closed</td>
-                        </tr>
-                        <tr>
-                            <td>Wednesday - Thursday</td>
-                            <td>9:00 AM - 5:00 PM</td>
-                        </tr>
-                        <tr>
-                            <td>Friday</td>
-                            <td>9:00 AM - 6:00 PM</td>
-                        </tr>
-                        <tr>
-                            <td>Saturday</td>
-                            <td>8:00 AM - 8:00 PM</td>
-                        </tr>
-                        <tr>
-                            <td>Sunday</td>
-                            <td>3:00 PM - 8:00 PM</td>
-                        </tr>
-                    </table>
-                    <p style="margin-top: 20px; font-style: italic;">Walk-ins welcome, appointments recommended on weekends</p>
-                    <p class="scriptural" style="margin-top: 15px;">"There is a time for everything, and a season for every activity under the heavens" <br>Ecclesiastes 3:1</p>
-                </div>
-                <div class="location-card">
-                    <h3>Appointment Notes</h3>
-                    <ul style="list-style: none; margin-top: 1.5rem;">
-                        <li style="padding: 10px 0; border-bottom: 1px solid #eee; display: flex; align-items: flex-start;">
-                            <i class="fas fa-check-circle" style="color: var(--accent-gold); margin-right: 10px; margin-top: 4px;"></i>
-                            <span>Please arrive 5 minutes before your appointment time</span>
-                        </li>
-                        <li style="padding: 10px 0; border-bottom: 1px solid #eee; display: flex; align-items: flex-start;">
-                            <i class="fas fa-check-circle" style="color: var(--accent-gold); margin-right: 10px; margin-top: 4px;"></i>
-                            <span>Late arrivals may be asked to reschedule</span>
-                        </li>
-                        <li style="padding: 10px 0; border-bottom: 1px solid #eee; display: flex; align-items: flex-start;">
-                            <i class="fas fa-check-circle" style="color: var(--accent-gold); margin-right: 10px; margin-top: 4px;"></i>
-                            <span>Cancellations require 24 hours notice</span>
-                        </li>
-                        <li style="padding: 10px 0; display: flex; align-items: flex-start;">
-                            <i class="fas fa-check-circle" style="color: var(--accent-gold); margin-right: 10px; margin-top: 4px;"></i>
-                            <span>We accept cash and major credit cards</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -814,9 +1016,9 @@
                     <h3>Masters Touch Barbers</h3>
                     <p>Precision cuts and spiritual care for gentlemen of all ages. Experience the difference of a barber's touch guided by faith.</p>
                     <div class="social-icons-footer">
-                        <a href="https://www.facebook.com/people/Dru-lee-Thomas/61555440681181/"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/dru_lee_thomas/?hl=en"><i class="fab fa-instagram"></i></a>
-                        <a href="https://api.whatsapp.com/send?phone=%2B27832622790&context=Afeza0FiWnEs0BiPH__PQksMpAdYk2n76OV2nYTeAbYC3JgqLxEoNY7ZIge3CM6zY5Q6edYeOpjDYY_7e8EsOguchKEdkfzv47BGGM73W_oObvr077f3UQSoYM2kaumqwF0lrYs6qOqzV3iWNL6A881srg&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwY2xjawK3xMxleHRuA2FlbQIxMABicmlkETE4R2t2eEk2TzRjNkg1dGxrAR7yEcjVoa-UUwlyqJnvF3ZKB_7_Dr4kFVURYdGET-vHsT0d96RLTdGoje29Uw_aem_yGN-tZmtbzHWObOGSmA8VQ"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/people/Dru-lee-Thomas/61555440681181/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/dru_lee_thomas/?hl=en" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://api.whatsapp.com/send?phone=%2B27832622790&context=Afeza0FiWnEs0BiPH__PQksMpAdYk2n76OV2nYTeAbYC3JgqLxEoNY7ZIge3CM6zY5Q6edYeOpjDYY_7e8EsOguchKEdkfzv47BGGM73W_oObvr077f3UQSoYM2kaumqwF0lrYs6qOqzV3iWNL6A881srg&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwY2xjawK3xMxleHRuA2FlbQIxMABicmlkETE4R2t2eEk2TzRjNkg1dGxrAR7yEcjVoa-UUwlyqJnvF3ZKB_7_Dr4kFVURYdGET-vHsT0d96RLTdGoje29Uw_aem_yGN-tZmtbzHWObOGSmA8VQ" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -842,14 +1044,64 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const closeMenu = document.getElementById('close-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.add('active');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+            menuToggle.focus();
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Close menu with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+                menuToggle.focus();
+            }
+        });
+        
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 
@@ -870,21 +1122,41 @@
             contactForm.reset();
         });
 
-        // Animation for contact cards
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
+        // Highlight current day in hours table
+        document.addEventListener('DOMContentLoaded', function() {
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const today = new Date().getDay();
+            const todayName = days[today];
+            
+            // Highlight current day in hours table
+            const tableRows = document.querySelectorAll('.hours-table tr');
+            tableRows.forEach(row => {
+                if (row.textContent.includes(todayName)) {
+                    row.style.backgroundColor = 'rgba(201, 167, 105, 0.1)';
+                    row.style.fontWeight = '600';
+                    const cell = row.querySelector('td:first-child');
+                    if (cell) {
+                        cell.innerHTML = `<i class="fas fa-calendar-day" style="color: var(--accent-gold); margin-right: 8px;"></i>${cell.textContent}`;
+                    }
                 }
             });
-        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.contact-info, .contact-form').forEach(card => {
-            card.style.opacity = 0;
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-            observer.observe(card);
+            // Animation for contact cards on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.contact-info, .contact-form').forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
         });
     </script>
 </body>
