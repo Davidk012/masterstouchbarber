@@ -21,15 +21,17 @@
         }
 
         :root {
-            --primary-dark: #2c1e16;   /* Dark brown */
-            --primary-medium: #5d4037;  /* Medium brown */
-            --primary-light: #d7ccc8;   /* Light brown */
-            --accent-black: #1a1a1a;    /* Black */
-            --accent-gold: #c9a769;     /* Gold accent */
-            --accent-burgundy: #8B0000; /* Deep red for biblical accent */
+            --primary-dark: #2c1e16;
+            --primary-medium: #5d4037;
+            --primary-light: #d7ccc8;
+            --accent-black: #1a1a1a;
+            --accent-gold: #c9a769;
+            --accent-burgundy: #8B0000;
             --text-light: #f5f5f5;
             --text-dark: #333;
-            --scripture-gold: #d4af37;  /* Gold for scripture references */
+            --scripture-gold: #d4af37;
+            --open-status: #2ecc71;
+            --closed-status: #e74c3c;
         }
 
         body {
@@ -208,6 +210,38 @@
             font-size: 1rem;
         }
 
+        .current-status {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px 25px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(201, 167, 105, 0.5);
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .open {
+            background-color: var(--open-status);
+            box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+        }
+
+        .closed {
+            background-color: var(--closed-status);
+            box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+        }
+
         .btn {
             display: inline-block;
             background: var(--accent-gold);
@@ -371,7 +405,41 @@
             margin: 1rem 0;
         }
 
+        /* Values Section */
+        .values {
+            background: linear-gradient(rgba(44, 30, 22, 0.9), rgba(44, 30, 22, 0.9)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(201, 167, 105, 0.3);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
         /* Hours & Location */
+        .hours-location-section {
+            background: var(--text-light);
+        }
+
         .hours-location {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -417,36 +485,6 @@
             border-radius: 8px;
             margin-top: 1.5rem;
             border: 1px solid var(--accent-gold);
-        }
-
-        /* Values Section */
-        .values {
-            background: linear-gradient(rgba(44, 30, 22, 0.9), rgba(44, 30, 22, 0.9)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-            color: var(--text-light);
-            text-align: center;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .value-card {
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(201, 167, 105, 0.3);
-        }
-
-        .value-icon {
-            font-size: 3rem;
-            color: var(--accent-gold);
-            margin-bottom: 1rem;
         }
 
         /* Footer */
@@ -526,6 +564,24 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
             color: #aaa;
+        }
+
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 8px;
+            z-index: 10000;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+            outline: 2px solid var(--accent-gold);
+            outline-offset: 2px;
         }
 
         /* Responsive */
@@ -734,24 +790,6 @@
                 padding: 12px 20px;
             }
         }
-
-        /* Skip link for accessibility */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--accent-gold);
-            color: var(--primary-dark);
-            padding: 8px;
-            z-index: 10000;
-            transition: top 0.3s;
-        }
-
-        .skip-link:focus {
-            top: 0;
-            outline: 2px solid var(--accent-gold);
-            outline-offset: 2px;
-        }
     </style>
 </head>
 <body>
@@ -800,6 +838,12 @@
                     <span class="scripture-ref">Colossians 3:23</span>
                 </div>
                 
+                <!-- Added current status indicator -->
+                <div id="status-display" class="current-status">
+                    <span class="status-indicator"></span>
+                    <span id="status-text">Checking current status...</span>
+                </div>
+                
                 <div class="hero-buttons">
                     <a href="service.html" class="btn">View Services</a>
                     <a href="contact.html" class="btn btn-outline">Book Appointment</a>
@@ -824,7 +868,7 @@
                         <p>Located in the heart of Johannesburg, Masters Touch Barbers combines traditional techniques with modern styles to create the perfect look for every gentleman. Our shop is designed as a sanctuary where clients can find respite from the world while receiving exceptional grooming services.</p>
                     </div>
                     <div class="about-image">
-                        <img src="IMG_5224.jpg" alt="Dru-Lee Thomas - Master Barber" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1599351431408-433ef72fe40b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Dru-Lee Thomas - Master Barber" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -1068,43 +1112,97 @@
             });
         });
 
-        // Simple animation for service cards on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
+        // Current day and open status
+        document.addEventListener('DOMContentLoaded', function() {
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const today = new Date().getDay();
+            const todayName = days[today];
+            const now = new Date();
+            const currentHour = now.getHours();
+            const currentMinutes = now.getMinutes();
+            
+            // Determine if shop is open
+            let isOpen = false;
+            const statusDisplay = document.getElementById('status-text');
+            const statusIndicator = document.querySelector('.status-indicator');
+            
+            switch(today) {
+                case 0: // Sunday
+                    isOpen = (currentHour >= 15 && currentHour < 20);
+                    break;
+                case 1: // Monday
+                case 2: // Tuesday
+                    isOpen = false;
+                    break;
+                case 3: // Wednesday
+                case 4: // Thursday
+                    isOpen = (currentHour >= 9 && currentHour < 17);
+                    break;
+                case 5: // Friday
+                    isOpen = (currentHour >= 9 && currentHour < 18);
+                    break;
+                case 6: // Saturday
+                    isOpen = (currentHour >= 8 && currentHour < 20);
+                    break;
+            }
+            
+            // Update status display
+            statusDisplay.textContent = isOpen ? 
+                "We're currently open! Come visit us!" : 
+                "We're currently closed. See our hours below.";
+            statusIndicator.classList.add(isOpen ? 'open' : 'closed');
+
+            // Highlight current day in hours table
+            const tableRows = document.querySelectorAll('.hours-table tr');
+            tableRows.forEach(row => {
+                if (row.textContent.includes(todayName)) {
+                    row.style.backgroundColor = 'rgba(201, 167, 105, 0.1)';
+                    row.style.fontWeight = '600';
+                    const cell = row.querySelector('td:first-child');
+                    if (cell) {
+                        cell.innerHTML = `<i class="fas fa-calendar-day" style="color: var(--accent-gold); margin-right: 8px;"></i>${cell.textContent}`;
+                    }
                 }
             });
-        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.service-card, .value-card').forEach(card => {
-            card.style.opacity = 0;
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            observer.observe(card);
+            // Simple animation for service cards on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.service-card, .value-card').forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+
+            // Scripture verse rotation
+            const scriptures = [
+                {text: '"Whatever you do, work at it with all your heart, as working for the Lord"', ref: "Colossians 3:23"},
+                {text: '"Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God."', ref: "Philippians 4:6"},
+                {text: '"I can do all things through Christ who strengthens me."', ref: "Philippians 4:13"},
+                {text: '"Trust in the Lord with all your heart and lean not on your own understanding."', ref: "Proverbs 3:5"}
+            ];
+
+            let currentVerse = 0;
+            const verseElement = document.querySelector('.scripture-verse');
+            const refElement = document.querySelector('.scripture-ref');
+
+            function rotateScripture() {
+                verseElement.innerHTML = scriptures[currentVerse].text;
+                refElement.textContent = scriptures[currentVerse].ref;
+                currentVerse = (currentVerse + 1) % scriptures.length;
+            }
+
+            // Rotate verses every 8 seconds
+            setInterval(rotateScripture, 8000);
         });
-
-        // Scripture verse rotation
-        const scriptures = [
-            {text: '"Whatever you do, work at it with all your heart, as working for the Lord"', ref: "Colossians 3:23"},
-            {text: '"Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God."', ref: "Philippians 4:6"},
-            {text: '"I can do all things through Christ who strengthens me."', ref: "Philippians 4:13"},
-            {text: '"Trust in the Lord with all your heart and lean not on your own understanding."', ref: "Proverbs 3:5"}
-        ];
-
-        let currentVerse = 0;
-        const verseElement = document.querySelector('.scripture-verse');
-        const refElement = document.querySelector('.scripture-ref');
-
-        function rotateScripture() {
-            verseElement.innerHTML = scriptures[currentVerse].text;
-            refElement.textContent = scriptures[currentVerse].ref;
-            currentVerse = (currentVerse + 1) % scriptures.length;
-        }
-
-        // Rotate verses every 8 seconds
-        setInterval(rotateScripture, 8000);
     </script>
 </body>
 </html>
